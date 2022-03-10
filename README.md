@@ -1,1 +1,1 @@
-# JVM-leito-exibidor
+# JVM-leitor-exibidor
