@@ -1,0 +1,5 @@
+make
+
+./a.out nome.class
+
+leitor
