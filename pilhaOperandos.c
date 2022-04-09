@@ -43,7 +43,7 @@ bool pilhaVazia (pilha_operandos * pilha){
 }
 
 /**
- * @brief Informa se a Pilha de Operandos esta vazia
+ * @brief Informa se o opernando no topo da Pilha de Operandos é um salto de linha
  */
 bool printVazio (pilha_operandos * pilha) {
 	int contador = 0;
