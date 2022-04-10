@@ -1,8 +1,15 @@
+
+/* *
+* @arquivo lista_classes.c
+* @brief Funções de manipulação da lista de classes
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include "listaClasses.h"
 #include "leitor.h"
+
 
 classesCarregadas* CriarLista_classes(){
 	return NULL;
