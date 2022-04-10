@@ -1,3 +1,8 @@
+/* *
+* @file lista_classes.h
+* @britoscópio Arquivo que contém uma estrutura para uma lista de aulas carregadas
+ */
+
 #ifndef LISTA_CLASSES_H
 #define LISTA_CLASSES_H
 
