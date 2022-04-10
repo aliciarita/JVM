@@ -1,4 +1,11 @@
-#include "listaOperandos.h"
+
+
+/* *
+* @file lista_operandos.c
+* @brief Funções de controle da lista de operadores
+ */
+
+#include "listaOperandos.h
 
 lista_operandos* CriarLista_operandos(){
 	return NULL;
