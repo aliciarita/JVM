@@ -90,35 +90,3 @@ lista_operandos* RemovePosicaoOperandos(lista_operandos *lista, int posicao);
 
 #endif
 
-
-/* *
-* @brief Inicializa uma lista de operandos
-* @details A função cria uma lista de operadores sem valor e retorna o ponteiro para ela.
-* @return Lista de operações com valor nulo
- */
-lista_operandos* CriarLista_operandos ();
-/* *
-* @brief Insere um operando (valor ou referência) no início da lista de operandos.
-* @details O tipo do operando é checado para que seja feita a inserção correta, e então
-* é alocado um espaço na memória correspondente, atribuindo ao operando enviado.
-* Apenas um tipo de operação deve ser enviado nesta função.
-*
-* @param lis Ponteiro para a lista de operandos
-* @param operando Operando de valor direto a ser inserido na lista
-* @param Operando de referência a ser inserido na lista
-* @param tipo_operando Definição do tipo de operação a ser inserido
-* @return Ponteiro para a lista de operandos após a inserção do novo operando
- */
-lista_operandos* InserirInicio_operandos (lista_operandos *lis, i4 operando, void *referencia, u1 tipo_operando);
-/* *
-* @brief Insere um operando (valor ou referência) no final da lista de operandos.
-* @details O tipo do operando é checado para que seja feita a inserção correta, e então
-* é alocado um espaço na memória correspondente, atribuindo ao operando enviado.
-* Apenas um tipo de operação deve ser enviado nesta função.
-*
-* @param lis Ponteiro para a lista de operandos
-* @param operando Operando de valor direto a ser inserido na lista
-* @param Operando de referência a ser inserido na lista
-* @param tipo_operando Definição do tipo de operação a ser inserido
-* @return Ponteiro para a lista de operandos após a inserção do novo operando
- */
