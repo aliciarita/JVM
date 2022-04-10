@@ -47,7 +47,7 @@ JVM* InicializarJVM() {
 	instrucoes = constroeInstrucoes();
 	return novo;
 }
-
+*/
 /**
  * @brief Funcao para criar um frame com valores default
  */
@@ -83,6 +83,7 @@ void executarJVM(){
             executarMetodo(methodAux,classeExecutavel,1);
         }
 
+		
     }
 
 	int i=0;
@@ -372,7 +373,7 @@ bool instrucaoBranch (char * nomeInstrucao) {
 }
 
 /**
- * @brief Funcao para atualizar o PC de acordo com a ultima instrucao executada
+ * @brief Funcao para atualizar o PC de acordo com a ultima instrucao  
  */
 u1 * atualizarPCMetodoAtual (u1 * code, u4 length) {
 	int contador = 0;
