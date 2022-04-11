@@ -1,7 +1,7 @@
 
-/* *
-* @file lista_operandos.h
-@brief Estrutura e * cabeçalho da implementação da pilha de operações
+/* 
+lista_operandos.h
+Estrutura e * cabeçalho da implementação da pilha de operações
  */
 
 #ifndef LISTA_OPERANDOS_H
@@ -34,10 +34,10 @@ typedef struct lista_operandos{
 }lista_operandos;
 
 /* *
-* @struct lista_operandos
+* lista_operandos
 *
-* @brief Estrutura de dados da lista de operações.
-* @consulte https://docs.oracle.com/javase/specs/jvms/se7/html/jvms-2.html#jvms-2.6.2
+* Estrutura de dados da lista de operações.
+* consulte https://docs.oracle.com/javase/specs/jvms/se7/html/jvms-2.html#jvms-2.6.2
 *
  */
 

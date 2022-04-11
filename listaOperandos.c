@@ -1,8 +1,8 @@
 
 
-/* *
-* @file lista_operandos.c
-* @brief Funções de controle da lista de operadores
+/* 
+ lista_operandos.c
+ Funções de controle da lista de operadores
  */
 
 #include "listaOperandos.h

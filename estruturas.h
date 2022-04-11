@@ -1,6 +1,5 @@
-/**
- * @file estruturas.h
- * @date 2022-03-30
+/*
+ estruturas.h
  */
 #ifndef	ESTRUTURAS_h
 #define ESTRUTURAS_h
@@ -16,7 +15,7 @@ typedef uint16_t u2;
 typedef uint32_t u4;
 
 
-/** Definição de valores máximos para u1, u2, u4*/
+/* Definição de valores máximos para u1, u2, u4*/
 #define MAXU1 255
 #define MAXU2 65535
 #define MAXU4 2147483647
@@ -41,17 +40,18 @@ typedef uint32_t u4;
 #define FIELD_INDEX 7
 
 
-/**
- * Estrutura de Constant Pool cp_info
- * O byte de tag define o tipo da informação em cp_info
+/*
+ Estrutura de Constant Pool cp_info
+ O byte de tag define o tipo da informação em cp_info
 */
 typedef struct cp_info{
-	u1 tag; /* byte tag que define o tipo de entrada*/
+	u1 tag; 
+	/* byte tag que define o tipo de entrada*/
 	/* Pool de constantes: as informações estão armazenadas na tabela constant_pool */
 
 	/* Union para conter os tipos de entrada na Constant Pool.
 	Cada struct assume com seus respectivos atributos de informação*/
-	union{ /* Tipos válidos de tags */
+	union{ // Tipos válidos de tags 
 
 		/* CONSTANT */
 		struct{
@@ -59,7 +59,7 @@ typedef struct cp_info{
 		} Class;
 		
 		struct{
-			u2 class_index; /* nome da classe ou interface que tem a declaração do field*/
+			u2 class_index; // nome da classe ou interface que tem a declaração do field
 			u2 name_and_type_index; /* o nome e o tipo do field*/
 		} Fieldref;
 
@@ -121,10 +121,10 @@ typedef struct cp_info{
 	}UnionCP;
 }cp_info;
 
-/**
- * Controle de acesso
- * u2 access_flags
- * máscaras em decimal especificando permissões de acesso e própriedade de métodos.
+/*
+ Controle de acesso
+ u2 access_flags
+ máscaras em decimal especificando permissões de acesso e própriedade de métodos.
  */
 enum access_flags{
 	PUBLIC = 1,				/*Público: pode ser acessado de fora do pacote.*/
@@ -143,9 +143,9 @@ enum access_flags{
 	ENUM = 16384,
 };
 
-/**
- * pool de constantes
- * tipos válidos de tags
+/*
+ pool de constantes
+ tipos válidos de tags
  */
 enum ValoresTag {
 
@@ -176,7 +176,7 @@ enum tipos_array{
 	T_LONG
 };
 
-/**Definição da estrutura de Attributes*/
+/*Definição da estrutura de Attributes*/
 typedef struct attribute_info {
 	u2 attribute_name_index;/*o nome do atributo*/
 	u4 attribute_length;/*tamanho restante do atributo*/
@@ -190,7 +190,7 @@ typedef struct staticData {
 	u1 * string;
 }staticData;
 
-/**Definição de estrutura de Field*/
+/*Definição de estrutura de Field*/
 typedef struct field_info{
 	u2 access_flags; /*acesso ao field e suas propriedades*/
 	u2 name_index;/*o nome do field*/
@@ -217,7 +217,7 @@ typedef struct line_number_table {
 	line_number_tableInfo * info;
 }line_number_table;
 
-/**Definição de estrutura Code attribute */
+/*Definição de estrutura Code attribute */
 typedef struct code_attribute {
   	u2 max_stack;/*máximo do operando na pilha deste método */
   	u2 max_locals;/*máximo variáveis locais alocado na chamada deste método*/
@@ -229,7 +229,7 @@ typedef struct code_attribute {
 	attribute_info ** attributes;/* array de atributos para este Code*/
 }code_attribute;
 
-/**Definição de estrutura Method*/
+/*Definição de estrutura Method*/
 typedef struct method_info{
 	u2 access_flags;/*acesso ao método e suas propriedades*/
 	u2 name_index; /* nome do método*/
@@ -250,24 +250,24 @@ typedef struct exceptions_attribute {
 
 	u2 number_of_exceptions;
 	u2 *exception_index_table; 	// Alocar com number_of_exceptions
-							   	// Each value in the exception_index
-								// table array must be a valid
-								// index into the constant_pool table.
+							   	// Cada valor no índice_exceção
+								// array de tabela deve ser válido
+								// indexa na tabela constant_pool.
 
 }exceptions_attribute;
 
 typedef struct classes {
 
 	u2 inner_class_info_index;	// Todos essas variaveis devem apontar para constant_pool;
-	u2 outer_class_info_index;	// If C is not a member of a class or an interface
-								// (that is, if C is a top-level class or interface
-								// or a local class or an anonymous class), the value
-								// of the outer_class_info_index item must be zero.
-	u2 inner_name_index;		// If C is anonymous, the value of the
-								// inner_name_index item must be zero.
+	u2 outer_class_info_index;	// Se C não for membro de uma classe ou interface
+								// (isto é, se C for uma classe ou interface de nível superior
+								// ou uma classe local ou uma classe anônima), o valor
+								// do item outer_class_info_index deve ser zero.
+	u2 inner_name_index;		// Se C for anônimo, o valor do
+								// o item inner_name_index deve ser zero.
 
-	u2 inner_class_access_flags; // It is used by a compiler to recover the original
-								 // information when source code is not available.
+	u2 inner_class_access_flags; // É usado por um compilador para recuperar o original
+								 // informações quando o código fonte não está disponível.
 
 }classes;
 
@@ -295,11 +295,6 @@ typedef struct enclosingMethod_attribute {
 	u2 method_index;		
 }enclosingMethod_attribute;
 
-/*typedef struct synthetic_attribute {
-	u2 attribute_name_index;
-	u4 attribute_length;
-}synthetic_attribute;*/
-
 typedef struct signature_attribute {
 	u2 signature_index;
 }signature_attribute;
@@ -325,11 +320,6 @@ typedef struct localVariableTypeTable {
 	u2 local_variable_type_table_length;
 	local_variable_table *local_variables; /* Alocar com o tamanho de local_variable_table_length*/
 }localVariableTypeTable;
-
-/*typedef struct deprecated_attribute{
-	u2 attribute_name_index;
-	u4 attribute_length;
-}deprecated_attribute; */
 
 struct annotation;
 

@@ -20,8 +20,8 @@ typedef struct instrucao{
 
 }instrucao;
 
-/**
- * Instruções para a documentação da JVM
+/*
+ Instruções para a documentação da JVM
  */
 enum operacoesInstrucoes {
   nop = 0x00, 
@@ -230,9 +230,9 @@ enum operacoesInstrucoes {
 /* Número de instruções presentes na enumeração */
 extern const int contagem_enum;
 
-/**
- * Método que vai construir as instruções
- * @return vetor quando a configuração das instruções
+/*
+ Método que vai construir as instruções
+ retorna vetor quando a configuração das instruções
 */
 instrucao* constroeInstrucoes(void);
 

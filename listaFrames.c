@@ -1,7 +1,7 @@
 
-/* *
-* @arquivo lista_frames.c
-* @brief Funções de controle da lista de frames
+/* 
+ lista_frames.c
+Funções de controle da lista de frames
  */
 
 
@@ -68,29 +68,6 @@ void ImprimeListaFrames(lista_frames *lista){
 		printf("%04x\n\n", f->f->end_retorno);
 	}
 }
-
-/* lista_frames* RemoverElemento_frames(lista_frames* lis,frame *f){
-	// lista_frames *p = BuscarElemento_frames(lis, f);
-	
-	if(p==NULO){
-		lista de retorno;
-	}
-	if (lis == p){
-		lis=p->prox;
-	}senão{
-		p->ant->prox = p->prox;
-	}
-	
-	if (p->prox!=NULL){
-		p->prox->ant = p->ant;
-	}
-	livre(p);
-	
-	lista de retorno;
-} */
-
-
-
 
 void LiberaListaFrames(lista_frames *lista){
 	lista_frames *p=lista;

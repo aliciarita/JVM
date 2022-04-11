@@ -1,11 +1,11 @@
-/**
- * @file pilhaFrames.c
- * @brief Funcoes para o controle da Pilha de Frames
+/*
+ pilhaFrames.c
+ Funcoes para o controle da Pilha de Frames
  */
 
 #include "pilhaFrames.h"
-/**
- * @brief Cria nova Pilha de Frames
+/*
+Cria nova Pilha de Frames
  */
 pilha_frames* CriaPilhaFrames(){
 	pilha_frames *pilha = malloc(sizeof(pilha_frames));
@@ -13,16 +13,16 @@ pilha_frames* CriaPilhaFrames(){
 	return pilha;
 }
 
-/**
- * @brief Incere um novo frame na Pilha de Frames
+/*
+ Incere um novo frame na Pilha de Frames
  */
 pilha_frames* PushFrames(pilha_frames *pilha, frame *f){
 	pilha->topo = InsereInicioFrames(pilha->topo,f);
 	return pilha;
 }
 
-/**
- * @brief Remove o frame do topo da Pilha de Frames
+/*
+Remove o frame do topo da Pilha de Frames
  */
 pilha_frames* PopFrames(pilha_frames *pilha){
 	pilha_frames *aux = CriaPilhaFrames();
@@ -31,15 +31,15 @@ pilha_frames* PopFrames(pilha_frames *pilha){
 	return (aux);
 }
 
-/**
- * @brief Retorna o frame do topo da Pilha de Frames
+/*
+  Retorna o frame do topo da Pilha de Frames
  */
 pilha_frames* TopoFrames(pilha_frames *pilha){
 	return pilha;
 }
 
-/**
- * @brief Imprime o conteudo da Pilha de Frames
+/*
+ Imprime o conteudo da Pilha de Frames
  */
 void ImprimePilhaFrames(pilha_frames *pilha){
 	ImprimeListaFrames(pilha->topo);

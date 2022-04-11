@@ -1,6 +1,6 @@
-/**
- * @file leitura.c
- * @brief Arquivo cabeçalho contendo funções do leitor/exibidor de .class
+/*
+leitura.c
+ *  Arquivo cabeçalho contendo funções do leitor/exibidor de .class
  */
 
 /*Inclusão de estruturas e assinatura de funções de leitura*/

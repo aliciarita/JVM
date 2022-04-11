@@ -1,20 +1,18 @@
-// * @file main.c
-// * @brief Arquivo com o código 'main' para execução do programa.
-// */
+// main.c
+// Arquivo com o código 'main' para execução do programa.
 
-/** Inclusão de bibliotecas para entrada e saída de dados, tratamento de strings e estruturas e mecanismos de leitura do arquivo .class
-*/
+/* Inclusão de bibliotecas para entrada e saída de dados, tratamento de strings e estruturas e mecanismos de leitura do arquivo .class*/
 
 #include "leitor.h"
 #include "jvm.h"
 
-/**
- * 
- * @brief Função main do programa
- * 
- * @param argc Número de argumentos do programa
- * @param argv Argumentos da linha de comando
- * 
+/*
+  
+  Função main do programa
+  
+  argc Número de argumentos do programa
+  argv Argumentos da linha de comando
+ 
  */
 int main(int argc, char const *argv[]){
 

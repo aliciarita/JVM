@@ -1,7 +1,7 @@
 
-/* *
-* @arquivo lista_frames.h
-@brief Estrutura e cabeçalho da implementação da lista de frames
+/* 
+lista_frames.h
+Estrutura e cabeçalho da implementação da lista de frames
  */
 
 
@@ -16,12 +16,10 @@
 #include "estruturas.h"
 
 
-/* *
-* @struct lista_frames
-*
-* @brief Estrutura de dados da lista de frames
-*
-* @ver estruturas.h
+/*
+lista_frames
+ Estrutura de dados da lista de frames
+estruturas.h
  */
 
 typedef struct lista_frames{

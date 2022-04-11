@@ -1,13 +1,13 @@
-/**
- * @file interpretador.c
- * @brief Arquivo de implementacao das instrucoes e funcoes auxiliares
+/*
+ interpretador.c
+ Arquivo de implementação das instrucõess e funcoes auxiliares
  */
 #include "interpretador.h"
 #include "jvm.h"
 #include "leitor.h"
 
-/**
- * @brief Funcao para resolver (analisar e alocar) uma classe
+/*
+ Função para resolver (analisar e alocar) uma classe
  */
 ClassFile* resolverClasse(char* nome_classe){
 	classesCarregadas *c = BuscarElemento_classes(jvm->classes,nome_classe);
@@ -27,8 +27,8 @@ ClassFile* resolverClasse(char* nome_classe){
 	return(classe);
 }
 
-/**
- * @brief Funcao para resolver (analisar e alocar) um metodo
+/*
+ Função para resolver (analisar e alocar) um metodo
  */
 bool resolverMetodo(cp_info *cp, u2 indice_cp, u1 interface){
 
@@ -49,8 +49,8 @@ bool resolverMetodo(cp_info *cp, u2 indice_cp, u1 interface){
 	}
 }
 
-/**
- * @brief Funcao para obter o nome de um metodo na pool de constantes
+/*
+ Função para obter o nome de um metodo na pool de constantes
  */
 char* obterNomeMetodo(cp_info *cp, u2 indice_cp, u1 interface){
 	cp_info *methodref = cp-1+indice_cp;
@@ -66,8 +66,8 @@ char* obterNomeMetodo(cp_info *cp, u2 indice_cp, u1 interface){
 	return(pch);
 }
 
-/**
- * @brief Funcao para obter o descriptor de um metodo
+/*
+ Função para obter o descriptor de um método
  */
 char* obterDescriptorMetodo(cp_info *cp, u2 indice_cp, u1 interface){
 	cp_info *methodref = cp-1+indice_cp;
@@ -85,8 +85,8 @@ char* obterDescriptorMetodo(cp_info *cp, u2 indice_cp, u1 interface){
 	return(pch);
 }
 
-/**
- * @brief Funcao para obter o tipo do descriptor do metodo
+/*
+ Função para obter o tipo do descriptor do método
  */
 int descriptorFieldValidate (char * descriptor) {
 
@@ -116,8 +116,8 @@ int descriptorFieldValidate (char * descriptor) {
 	return 0;
 }
 
-/**
- * @brief Funcao para obter a classe executante de um metodo
+/*
+Função para obter a classe executante de um método
  */
 char* obterClasseDoMetodo(cp_info *cp, u2 indice_cp){
 	cp_info *methodref = cp-1+indice_cp;
@@ -127,8 +127,8 @@ char* obterClasseDoMetodo(cp_info *cp, u2 indice_cp){
 	return(nome_classe);
 }
 
-/**
- * @brief Funcao para se uma classe possui a flag super
+/*
+ Função para se uma classe possui a flag super
  */
 bool isSuper(u2 flag){
 	int super = false;
@@ -184,8 +184,8 @@ bool isSuper(u2 flag){
 	return(super);
 }
 
-/**
- * @brief Funcao para transferir os valores da Pilha de Operandos de um frame para o vetor de variaveis locais do proximo frame
+/*
+ Função para transferir os valores da Pilha de Operandos de um frame para o vetor de variaveis locais do próximo frame
  */
 frame* transferePilhaVetor(frame *anterior, frame *novo, int *parametros_cont){
 
@@ -214,8 +214,8 @@ frame* transferePilhaVetor(frame *anterior, frame *novo, int *parametros_cont){
 	return(novo);
 }
 
-/**
- * @brief Funcao para transferir os valores da Pilha de Operandos de um frame para o vetor de variaveis locais do proximo frame
+/*
+ Função para transferir os valores da Pilha de Operandos de um frame para o vetor de variaveis locais do próximo frame
  */
 frame *transferePilhaVetorCount(frame *f, frame *novo,int quantidade){
 	pilha_operandos *aux = CriaPilhaOperandos();
@@ -243,78 +243,76 @@ frame *transferePilhaVetorCount(frame *f, frame *novo,int quantidade){
 	return(novo);
 }
 
-/**
- * @brief Não executa nada
+/*
+Não executa nada
  */
 void nop_impl(frame *par0, u1 par1, u1 par2){
 	return;
 }
 
-/**
- * @brief Faz o push de um valor nulo para a pilha de operandos 
+/*
+Faz o push de um valor nulo para a pilha de operandos 
  */
 void aconst_null_impl(frame *f, u1 par1, u1 par2){
 	PushOperandos(f->p,0,NULL,REFERENCE_OP); 
 }
 
-/**
- * @brief [brief description]
- */
+
 void iconst_m1_impl(frame *f, u1 par1, u1 par2){
 	i4 inteiro_sinal = (i4) -1;
 	PushOperandos(f->p,inteiro_sinal,NULL,INTEGER_OP);
 }
 
-/**
- * @brief Faz o push para a pilha de operando da constante 0 (int)
+/*
+Faz o push para a pilha de operando da constante 0 (int)
  */
 void iconst_0_impl(frame *f, u1 par1, u1 par2){
 	i4 inteiro_sinal = (i4) 0;
 	PushOperandos(f->p,inteiro_sinal,NULL,INTEGER_OP);
 }
 
-/**
- * @brief Faz o push para a pilha de operando da constante 1 (int)
+/*
+ Faz o push para a pilha de operando da constante 1 (int)
  */
 void iconst_1_impl(frame *f, u1 par1, u1 par2){
 	i4 inteiro_sinal = (i4) 1;
 	PushOperandos(f->p,inteiro_sinal,NULL,INTEGER_OP);
 }
 
-/**
- * @brief Faz o push para a pilha de operando da constante 2 (int)
+/*
+ Faz o push para a pilha de operando da constante 2 (int)
  */
 void iconst_2_impl(frame *f, u1 par1, u1 par2){
 	i4 inteiro_sinal = (i4) 2;
 	PushOperandos(f->p,inteiro_sinal,NULL,INTEGER_OP);
 }
 
-/**
- * @brief Faz o push para a pilha de operando da constante 3 (int) 
+/*
+ Faz o push para a pilha de operando da constante 3 (int) 
  */
 void iconst_3_impl(frame *f, u1 par1, u1 par2){
 	i4 inteiro_sinal = (i4) 3;
 	PushOperandos(f->p,inteiro_sinal,NULL,INTEGER_OP);
 }
 
-/**
- * @brief Faz o push para a pilha de operando da constante 4 (int)
+/*
+Faz o push para a pilha de operando da constante 4 (int)
  */
 void iconst_4_impl(frame *f, u1 par1, u1 par2){
 	i4 inteiro_sinal = (i4) 4;
 	PushOperandos(f->p,inteiro_sinal,NULL,INTEGER_OP);
 }
 
-/**
- * @brief Faz o push para a pilha de operando da constante 5 (int)
+/*
+ Faz o push para a pilha de operando da constante 5 (int)
  */
 void iconst_5_impl(frame *f, u1 par1, u1 par2){
 	i4 inteiro_sinal = (i4) 5;
 	PushOperandos(f->p,(u4)inteiro_sinal,NULL,INTEGER_OP);
 }
 
-/**
- * @brief Faz o push para a pilha de operando da constante 0 (long)
+/*
+ Faz o push para a pilha de operando da constante 0 (long)
  */
 void lconst_0_impl(frame *f, u1 par1, u1 par2){
 	i4 high_bytes = (i4) 0;
@@ -323,8 +321,8 @@ void lconst_0_impl(frame *f, u1 par1, u1 par2){
 	PushOperandos(f->p,low_bytes,NULL,LONG_OP);
 }
 
-/**
- * @brief Faz o push para a pilha de operando da constante 1 (long)
+/*
+ Faz o push para a pilha de operando da constante 1 (long)
  */
 void lconst_1_impl(frame *f, u1 par1, u1 par2){
 	i4 high_bytes = (i4) 0;
@@ -333,32 +331,32 @@ void lconst_1_impl(frame *f, u1 par1, u1 par2){
 	PushOperandos(f->p,low_bytes,NULL,LONG_OP);
 }
 
-/**
- * @brief Faz o push para a pilha de operando da constante 0 (float)
+/*
+ Faz o push para a pilha de operando da constante 0 (float)
  */
 void fconst_0_impl(frame *f, u1 par1, u1 par2){
 	i4 float_bytes = (i4) 0;
 	PushOperandos(f->p,float_bytes,NULL,FLOAT_OP);
 }
 
-/**
- * @brief Faz o push para a pilha de operando da constante 1 (float)
+/*
+Faz o push para a pilha de operando da constante 1 (float)
  */
 void fconst_1_impl(frame *f, u1 par1, u1 par2){
 	i4 float_bytes = 0x3f800000;
 	PushOperandos(f->p,float_bytes,NULL,FLOAT_OP);
 }
 
-/**
- * @brief Faz o push para a pilha de operando da constante 2 (float)
+/*
+ Faz o push para a pilha de operando da constante 2 (float)
  */
 void fconst_2_impl(frame *f, u1 par1, u1 par2){
 	i4 float_bytes = 0x40000000;
 	PushOperandos(f->p,float_bytes,NULL,FLOAT_OP);
 }
 
-/**
- * @brief Faz o push para a pilha de operando da constante 0 (double)
+/*
+ Faz o push para a pilha de operando da constante 0 (double)
  */
 void dconst_0_impl(frame *f, u1 par1, u1 par2){
 	i4 high_bytes = (i4) 0;
@@ -367,8 +365,8 @@ void dconst_0_impl(frame *f, u1 par1, u1 par2){
 	PushOperandos(f->p,low_bytes,NULL,DOUBLE_OP);
 }
 
-/**
- * @brief Faz o push para a pilha de operando da constante 1 (double)
+/*
+ Faz o push para a pilha de operando da constante 1 (double)
  */
 void dconst_1_impl(frame *f, u1 par1, u1 par2){
 	i4 high_bytes = 0x3FF00000;
@@ -377,8 +375,8 @@ void dconst_1_impl(frame *f, u1 par1, u1 par2){
 	PushOperandos(f->p,low_bytes,NULL,DOUBLE_OP);
 }
 
-/**
- * @brief Faz o push de um byte na pilha de operandos
+/*
+ Faz o push de um byte na pilha de operandos
  */
 void bipush_impl(frame *f, u1 byte, u1 par1){
 	i1 aux = (i1)byte;
@@ -386,8 +384,8 @@ void bipush_impl(frame *f, u1 byte, u1 par1){
 	PushOperandos(f->p,byte_int,NULL,BYTE_OP);
 }
 
-/**
- * @brief Faz o push de um short na pilha de operandos
+/*
+ Faz o push de um short na pilha de operandos
  */
 void sipush_impl(frame *f, u1 byte1, u1 byte2){
 	i2 byte_short = (i2)(byte1<<8) | (i2)byte2;
@@ -395,8 +393,8 @@ void sipush_impl(frame *f, u1 byte1, u1 byte2){
 	PushOperandos(f->p,byte_int,NULL,SHORT_OP);
 }
 
-/**
- * @brief Faz o push de um valor presente na constant pool
+/*
+Faz o push de um valor presente na constant pool
  */
 void ldc_impl(frame *f, u1 indexbyte1, u1 par2){
 	cp_info *item = f->cp-1 + indexbyte1;
@@ -431,8 +429,8 @@ void ldc_impl(frame *f, u1 indexbyte1, u1 par2){
 
 }
 
-/**
- * @brief Faz o push de um valor presente na constant pool
+/*
+ Faz o push de um valor presente na constant pool
  */
 void ldc_w_impl(frame *f, u1 indexbyte1, u1 indexbyte2){
 	u2 indice_cp = normaliza_indice(indexbyte1,indexbyte2);
@@ -467,8 +465,8 @@ void ldc_w_impl(frame *f, u1 indexbyte1, u1 indexbyte2){
 
 }
 
-/**
- * @brief Faz o push de um valor long ou double presente na constant pool
+/*
+ Faz o push de um valor long ou double presente na constant pool
  */
 void ldc2_w_impl(frame *f, u1 branchbyte1, u1 branchbyte2){
 	int8_t v1 = (int8_t)branchbyte1;
@@ -495,15 +493,15 @@ void ldc2_w_impl(frame *f, u1 branchbyte1, u1 branchbyte2){
 	}
 }
 
-/**
- * @brief Carrega um valor int do vetor de variáveis locais
+/*
+  Carrega um valor int do vetor de variáveis locais
  */
 void iload_impl(frame *f, u1 index, u1 par1){
 	PushOperandos(f->p,(i4) *(f->v[index].variavel),NULL,INTEGER_OP);
 }
 
-/**
- * @brief Carrega um valor long do vetor de variáveis locais 
+/*
+ Carrega um valor long do vetor de variáveis locais 
  */
 void lload_impl(frame *f, u1 index, u1 par1){
 	
@@ -511,15 +509,15 @@ void lload_impl(frame *f, u1 index, u1 par1){
 	PushOperandos(f->p,(i4) *(f->v[index+1].variavel),NULL,LONG_OP);
 }
 
-/**
- * @brief Carrega um valor float do vetor de variáveis locais
+/*
+ Carrega um valor float do vetor de variáveis locais
  */
 void fload_impl(frame *f, u1 index, u1 par1){
 	PushOperandos(f->p, (i4) *(f->v[index].variavel),NULL,FLOAT_OP);
 }
 
-/**
- * @brief Carrega um valor double do vetor de variáveis locais 
+/*
+ Carrega um valor double do vetor de variáveis locais 
  */
 void dload_impl(frame *f, u1 index, u1 par2){
 	
@@ -527,43 +525,43 @@ void dload_impl(frame *f, u1 index, u1 par2){
 	PushOperandos(f->p,(i4) *(f->v[index+1].variavel),NULL,DOUBLE_OP);
 }
 
-/**
- * @brief Carrega uma referência do vetor de variáveis locais
+/*
+ Carrega uma referência do vetor de variáveis locais
  */
 void aload_impl(frame *f, u1 index, u1 par1){
 	PushOperandos(f->p,-INT_MAX,(void*)(intptr_t)*(f->v[index].variavel),f->v[index].tipo_variavel);
 }
 
-/**
- * @brief Carrega um valor int da posição 0 do vetor de variáveis locais
+/*
+ Carrega um valor int da posição 0 do vetor de variáveis locais
  */
 void iload_0_impl(frame *f, u1 par1, u1 par2){
 	PushOperandos(f->p,(i4) *(f->v[0].variavel),NULL,INTEGER_OP);
 }
 
 /**
- * @brief Carrega um valor int da posição 1 do vetor de variáveis locais
+ * - Carrega um valor int da posição 1 do vetor de variáveis locais
  */
 void iload_1_impl(frame *f, u1 par1, u1 par2){
 	PushOperandos(f->p,(i4) *(f->v[1].variavel),NULL,INTEGER_OP);
 }
 
 /**
- * @brief Carrega um valor int da posição 2 do vetor de variáveis locais
+ * - Carrega um valor int da posição 2 do vetor de variáveis locais
  */
 void iload_2_impl(frame *f, u1 par1, u1 par2){
 	PushOperandos(f->p,(i4) *(f->v[2].variavel),NULL,INTEGER_OP);
 }
 
 /**
- * @brief Carrega um valor int da posição 3 do vetor de variáveis locais
+ * - Carrega um valor int da posição 3 do vetor de variáveis locais
  */
 void iload_3_impl(frame *f, u1 par1, u1 par2){
 	PushOperandos(f->p,(i4) *(f->v[3].variavel),NULL,INTEGER_OP);
 }
 
 /**
- * @brief Carrega um valor long da posição 0 do vetor de variáveis locais
+ * - Carrega um valor long da posição 0 do vetor de variáveis locais
  */
 void lload_0_impl(frame *f, u1 par, u1 par2){
 	PushOperandos(f->p,(i4) *(f->v[0].variavel),NULL,LONG_OP);
@@ -571,7 +569,7 @@ void lload_0_impl(frame *f, u1 par, u1 par2){
 }
 
 /**
- * @brief Carrega um valor long da posição 1 do vetor de variáveis locais
+ * - Carrega um valor long da posição 1 do vetor de variáveis locais
  */
 void lload_1_impl(frame *f, u1 par, u1 par2){
 	PushOperandos(f->p,(i4) *(f->v[1].variavel),NULL,LONG_OP);
@@ -579,7 +577,7 @@ void lload_1_impl(frame *f, u1 par, u1 par2){
 }
 
 /**
- * @brief Carrega um valor long da posição 2 do vetor de variáveis locais
+ * - Carrega um valor long da posição 2 do vetor de variáveis locais
  */
 void lload_2_impl(frame *f, u1 par, u1 par2){
 	PushOperandos(f->p,(i4) *(f->v[2].variavel),NULL,LONG_OP);
@@ -587,7 +585,7 @@ void lload_2_impl(frame *f, u1 par, u1 par2){
 }
 
 /**
- * @brief Carrega um valor long da posição 3 do vetor de variáveis locais
+ * - Carrega um valor long da posição 3 do vetor de variáveis locais
  */
 void lload_3_impl(frame *f, u1 par, u1 par2){
 	PushOperandos(f->p,(i4) *(f->v[3].variavel),NULL,LONG_OP);
@@ -595,35 +593,35 @@ void lload_3_impl(frame *f, u1 par, u1 par2){
 }
 
 /**
- * @brief Carrega um valor float da posição 0 do vetor de variáveis locais
+ * - Carrega um valor float da posição 0 do vetor de variáveis locais
  */
 void fload_0_impl(frame *f, u1 par1, u1 par2){
 	PushOperandos(f->p,(i4) *(f->v[0].variavel),NULL,FLOAT_OP);
 }
 
 /**
- * @brief Carrega um valor float da posição 1 do vetor de variáveis locais
+ * - Carrega um valor float da posição 1 do vetor de variáveis locais
  */
 void fload_1_impl(frame *f, u1 par1, u1 par2){
 	PushOperandos(f->p,(i4) *(f->v[1].variavel),NULL,FLOAT_OP);
 }
 
 /**
- * @brief Carrega um valor float da posição 2 do vetor de variáveis locais
+ * - Carrega um valor float da posição 2 do vetor de variáveis locais
  */
 void fload_2_impl(frame *f, u1 par1, u1 par2){
 	PushOperandos(f->p,(i4) *(f->v[2].variavel),NULL,FLOAT_OP);
 }
 
 /**
- * @brief Carrega um valor float da posição 3 do vetor de variáveis locais
+ * - Carrega um valor float da posição 3 do vetor de variáveis locais
  */
 void fload_3_impl(frame *f, u1 par1, u1 par2){
 	PushOperandos(f->p,(i4) *(f->v[3].variavel),NULL,FLOAT_OP);
 }
 
 /**
- * @brief Carrega um valor double da posição 0 do vetor de variáveis locais
+ * - Carrega um valor double da posição 0 do vetor de variáveis locais
  */
 void dload_0_impl(frame *f, u1 par1, u1 par2){
 	PushOperandos(f->p,(i4) *(f->v[0].variavel),NULL,DOUBLE_OP);
@@ -631,7 +629,7 @@ void dload_0_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Carrega um valor double da posição 1 do vetor de variáveis locais
+ * - Carrega um valor double da posição 1 do vetor de variáveis locais
  */
 void dload_1_impl(frame *f, u1 par1, u1 par2){
 	PushOperandos(f->p,(i4) *(f->v[1].variavel),NULL,DOUBLE_OP);
@@ -639,7 +637,7 @@ void dload_1_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Carrega um valor double da posição 2 do vetor de variáveis locais
+ * - Carrega um valor double da posição 2 do vetor de variáveis locais
  */
 void dload_2_impl(frame *f, u1 par1, u1 par2){
 	PushOperandos(f->p,(i4) *(f->v[2].variavel),NULL,DOUBLE_OP);
@@ -647,7 +645,7 @@ void dload_2_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Carrega um valor double da posição 3 do vetor de variáveis locais
+ * - Carrega um valor double da posição 3 do vetor de variáveis locais
  */
 void dload_3_impl(frame *f, u1 par1, u1 par2){
 	PushOperandos(f->p,(i4) *(f->v[3].variavel),NULL,DOUBLE_OP);
@@ -655,14 +653,14 @@ void dload_3_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Carrega uma referência da posição 0 do vetor de variáveis locais
+ * - Carrega uma referência da posição 0 do vetor de variáveis locais
  */
 void aload_0_impl(frame *f, u1 par1, u1 par2){
 	PushOperandos(f->p,-INT_MAX,(void*)(intptr_t)*(f->v[0].variavel),f->v[0].tipo_variavel);
 }
 
-/**
- * @brief Carrega uma referência da posição 1 do vetor de variáveis locais
+/*
+  - Carrega uma referência da posição 1 do vetor de variáveis locais
  */
 void aload_1_impl(frame *f, u1 par1, u1 par2){
 
@@ -670,21 +668,21 @@ void aload_1_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Carrega uma referência da posição 2 do vetor de variáveis locais
+ * - Carrega uma referência da posição 2 do vetor de variáveis locais
  */
 void aload_2_impl(frame *f, u1 par1, u1 par2){
 	PushOperandos(f->p,-INT_MAX,(void*)(intptr_t)*(f->v[2].variavel),f->v[2].tipo_variavel);
 }
 
 /**
- * @brief Carrega uma referência da posição 3 do vetor de variáveis locais
+ * - Carrega uma referência da posição 3 do vetor de variáveis locais
  */
 void aload_3_impl(frame *f, u1 par1, u1 par2){
 	PushOperandos(f->p,-INT_MAX,(void*)(intptr_t)*(f->v[3].variavel),f->v[3].tipo_variavel);
 }
 
 /**
- * @brief Carrega um int de um array
+ * - Carrega um int de um array
  */
 void iaload_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *indice = PopOperandos(f->p);
@@ -696,7 +694,7 @@ void iaload_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Carrega um long de um array
+ * - Carrega um long de um array
  */
 void laload_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *indice = PopOperandos(f->p);
@@ -709,7 +707,7 @@ void laload_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Carrega um float de um array
+ * - Carrega um float de um array
  */
 void faload_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *indice = PopOperandos(f->p);
@@ -721,7 +719,7 @@ void faload_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Carrega um double de um array
+ * - Carrega um double de um array
  */
 void daload_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *indice = PopOperandos(f->p);
@@ -734,13 +732,13 @@ void daload_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Carrega uma referência de um array
+ * - Carrega uma referência de um array
  */
 void aaload_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Carrega um byte de um array
+ * - Carrega um byte de um array
  */
 void baload_impl(frame *f, u1 par1, u1 par2){
 
@@ -752,7 +750,7 @@ void baload_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Carrega um char de um array
+ * - Carrega um char de um array
  */
 void caload_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *indice = PopOperandos(f->p);
@@ -763,7 +761,7 @@ void caload_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Carrega um short de um array
+ * - Carrega um short de um array
  */
 void saload_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *indice = PopOperandos(f->p);
@@ -775,7 +773,7 @@ void saload_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Armazena um int no vetor de variáveis locais
+ * - Armazena um int no vetor de variáveis locais
  */
 void istore_impl(frame *f, u1 index,u1 par1){
 	pilha_operandos *valor = PopOperandos(f->p);
@@ -783,7 +781,7 @@ void istore_impl(frame *f, u1 index,u1 par1){
 }
 
 /**
- * @brief Armazena um long no vetor de variáveis locais
+ * - Armazena um long no vetor de variáveis locais
  */
 void lstore_impl(frame *f, u1 index, u1 par1){
 	pilha_operandos *low_bytes = PopOperandos(f->p);
@@ -794,7 +792,7 @@ void lstore_impl(frame *f, u1 index, u1 par1){
 }
 
 /**
- * @brief Armazena um float no vetor de variáveis locais
+ * - Armazena um float no vetor de variáveis locais
  */
 void fstore_impl(frame *f, u1 index,u1 par1){
 	pilha_operandos *valor = PopOperandos(f->p);
@@ -802,7 +800,7 @@ void fstore_impl(frame *f, u1 index,u1 par1){
 }
 
 /**
- * @brief Armazena um double no vetor de variáveis locais
+ * - Armazena um double no vetor de variáveis locais
  */
 void dstore_impl(frame *f, u1 index, u1 par1){
 	pilha_operandos *low_bytes = PopOperandos(f->p);
@@ -813,7 +811,7 @@ void dstore_impl(frame *f, u1 index, u1 par1){
 }
 
 /**
- * @brief Armazena uma referência no vetor de variáveis locais
+ * - Armazena uma referência no vetor de variáveis locais
  */
 void astore_impl(frame *f, u1 index,u1 par1){
 	pilha_operandos *valor = PopOperandos(f->p);
@@ -822,7 +820,7 @@ void astore_impl(frame *f, u1 index,u1 par1){
 }
 
 /**
- * @brief Armazena um int na posição 0 do vetor de variáveis locais
+ * - Armazena um int na posição 0 do vetor de variáveis locais
  */
 void istore_0_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *valor = PopOperandos(f->p);
@@ -830,7 +828,7 @@ void istore_0_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Armazena um int na posição 1 do vetor de variáveis locais
+ * - Armazena um int na posição 1 do vetor de variáveis locais
  */
 void istore_1_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *valor = PopOperandos(f->p);
@@ -838,7 +836,7 @@ void istore_1_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Armazena um int na posição 2 do vetor de variáveis locais
+ * - Armazena um int na posição 2 do vetor de variáveis locais
  */
 void istore_2_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *valor = PopOperandos(f->p);
@@ -846,7 +844,7 @@ void istore_2_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Armazena um int na posição 3 do vetor de variáveis locais
+ * - Armazena um int na posição 3 do vetor de variáveis locais
  */
 void istore_3_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *valor = PopOperandos(f->p);
@@ -854,7 +852,7 @@ void istore_3_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Armazena um long na posição 0 do vetor de variáveis locais
+ * - Armazena um long na posição 0 do vetor de variáveis locais
  */
 void lstore_0_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *low_bytes = PopOperandos(f->p);
@@ -865,7 +863,7 @@ void lstore_0_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Armazena um long na posição 1 do vetor de variáveis locais
+ * - Armazena um long na posição 1 do vetor de variáveis locais
  */
 void lstore_1_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *low_bytes = PopOperandos(f->p);
@@ -876,7 +874,7 @@ void lstore_1_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Armazena um long na posição 2 do vetor de variáveis locais
+ * - Armazena um long na posição 2 do vetor de variáveis locais
  */
 void lstore_2_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *low_bytes = PopOperandos(f->p);
@@ -887,7 +885,7 @@ void lstore_2_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Armazena um long na posição 3 do vetor de variáveis locais
+ * - Armazena um long na posição 3 do vetor de variáveis locais
  */
 void lstore_3_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *low_bytes = PopOperandos(f->p);
@@ -898,7 +896,7 @@ void lstore_3_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Armazena um float na posição 0 do vetor de variáveis locais
+ * - Armazena um float na posição 0 do vetor de variáveis locais
  */
 void fstore_0_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *valor = PopOperandos(f->p);
@@ -906,7 +904,7 @@ void fstore_0_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Armazena um float na posição 1 do vetor de variáveis locais
+ * - Armazena um float na posição 1 do vetor de variáveis locais
  */
 void fstore_1_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *valor = PopOperandos(f->p);
@@ -914,7 +912,7 @@ void fstore_1_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Armazena um float na posição 2 do vetor de variáveis locais
+ * - Armazena um float na posição 2 do vetor de variáveis locais
  */
 void fstore_2_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *valor = PopOperandos(f->p);
@@ -922,7 +920,7 @@ void fstore_2_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Armazena um float na posição 3 do vetor de variáveis locais
+ * - Armazena um float na posição 3 do vetor de variáveis locais
  */
 void fstore_3_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *valor = PopOperandos(f->p);
@@ -930,7 +928,7 @@ void fstore_3_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Armazena um double na posição 0 do vetor de variáveis locais
+ * - Armazena um double na posição 0 do vetor de variáveis locais
  */
 void dstore_0_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *low_bytes = PopOperandos(f->p);
@@ -941,7 +939,7 @@ void dstore_0_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Armazena um double na posição 1 do vetor de variáveis locais
+ * - Armazena um double na posição 1 do vetor de variáveis locais
  */
 void dstore_1_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *low_bytes = PopOperandos(f->p);
@@ -952,7 +950,7 @@ void dstore_1_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Armazena um double na posição 2 do vetor de variáveis locais
+ * - Armazena um double na posição 2 do vetor de variáveis locais
  */
 void dstore_2_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *low_bytes = PopOperandos(f->p);
@@ -963,7 +961,7 @@ void dstore_2_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Armazena um double na posição 3 do vetor de variáveis locais
+ * - Armazena um double na posição 3 do vetor de variáveis locais
  */
 void dstore_3_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *low_bytes = PopOperandos(f->p);
@@ -974,7 +972,7 @@ void dstore_3_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Armazena uma referência na posição 0 do vetor de variáveis locais
+ * - Armazena uma referência na posição 0 do vetor de variáveis locais
  */
 void astore_0_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *valor = PopOperandos(f->p);
@@ -983,7 +981,7 @@ void astore_0_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Armazena uma referência na posição 1 do vetor de variáveis locais
+ * - Armazena uma referência na posição 1 do vetor de variáveis locais
  */
 void astore_1_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *valor = PopOperandos(f->p);
@@ -994,7 +992,7 @@ void astore_1_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Armazena uma referência na posição 2 do vetor de variáveis locais
+ * - Armazena uma referência na posição 2 do vetor de variáveis locais
  */
 void astore_2_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *valor = PopOperandos(f->p);
@@ -1003,7 +1001,7 @@ void astore_2_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Armazena uma referência na posição 3 do vetor de variáveis locais
+ * - Armazena uma referência na posição 3 do vetor de variáveis locais
  */
 void astore_3_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *valor = PopOperandos(f->p);
@@ -1012,7 +1010,7 @@ void astore_3_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Armazena um valor int em um array
+ * - Armazena um valor int em um array
  */
 void iastore_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *valor = PopOperandos(f->p);
@@ -1024,7 +1022,7 @@ void iastore_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Armazena um valor long em um array
+ * - Armazena um valor long em um array
  */
 void lastore_impl(frame *f, u1 par1, u1 par2){
 
@@ -1043,7 +1041,7 @@ void lastore_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Armazena um valor float em um array
+ * - Armazena um valor float em um array
  */
 void fastore_impl(frame *f, u1 par1, u1 par2){
 
@@ -1056,7 +1054,7 @@ void fastore_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Armazena um valor double em um array
+ * - Armazena um valor double em um array
  */
 void dastore_impl(frame *f, u1 par1, u1 par2){
 
@@ -1075,7 +1073,7 @@ void dastore_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Armazena um valor byte em um array
+ * - Armazena um valor byte em um array
  */
 void bastore_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *valor = PopOperandos(f->p);
@@ -1087,7 +1085,7 @@ void bastore_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Armazena um valor char em um array
+ * - Armazena um valor char em um array
  */
 void castore_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *valor = PopOperandos(f->p);
@@ -1099,7 +1097,7 @@ void castore_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Armazena um valor short em um array
+ * - Armazena um valor short em um array
  */
 void sastore_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *valor = PopOperandos(f->p);
@@ -1111,13 +1109,13 @@ void sastore_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Armazena uma referência em um array
+ * - Armazena uma referência em um array
  */
 void aastore_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Remove o valor de topo da pilha de operandos
+ * - Remove o valor de topo da pilha de operandos
  */
 pilha_operandos* pop_impl(frame *f){
 	pilha_operandos *valor = PopOperandos(f->p);
@@ -1126,7 +1124,7 @@ pilha_operandos* pop_impl(frame *f){
 }
 
 /**
- * @brief Remove os dois valores de topo da pilha de operandos
+ * - Remove os dois valores de topo da pilha de operandos
  */
 pilha_operandos** pop2_impl(frame *f){
 	PopOperandos(f->p);
@@ -1135,21 +1133,21 @@ pilha_operandos** pop2_impl(frame *f){
 }
 
 /**
- * @brief PlaceHolder para ocupar posicao no vetor de posicoes da instrucao pop
+ * - PlaceHolder para ocupar posicao no vetor de posicoes da instrucao pop
  */
 void pop_fantasma(frame *f, u1 par1, u1 par2){
 	pop_impl(f);
 }
 
 /**
- * @brief PlaceHolder para ocupar posicao no vetor de posicoes da instrucao pop2
+ * - PlaceHolder para ocupar posicao no vetor de posicoes da instrucao pop2
  */
 void pop2_fantasma(frame *par0, u1 par1, u1 par2){
 
 }
 
 /**
- * @brief Duplica o valor no topo da pilha de operandos.
+ * - Duplica o valor no topo da pilha de operandos.
  */
 void dup_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *valor = TopoOperandos(f->p);
@@ -1157,7 +1155,7 @@ void dup_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Duplica o valor no topo da pilha de operandos e insere dois valores a baixo.
+ * - Duplica o valor no topo da pilha de operandos e insere dois valores a baixo.
  */
 void dup_x1_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *valor1 = PopOperandos(f->p);
@@ -1169,7 +1167,7 @@ void dup_x1_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Duplica o valor no topo da pilha de operandos e insere dois ou três valores a baixo.
+ * - Duplica o valor no topo da pilha de operandos e insere dois ou três valores a baixo.
  */
 void dup_x2_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *valor1 = PopOperandos(f->p);
@@ -1183,7 +1181,7 @@ void dup_x2_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Duplica o primeiro ou o segundo valor no topo da pilha de operandos e insere logo abaixo.
+ * - Duplica o primeiro ou o segundo valor no topo da pilha de operandos e insere logo abaixo.
  */
 void dup2_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *valor1 = PopOperandos(f->p);
@@ -1196,7 +1194,7 @@ void dup2_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Duplica o primeiro ou o segundo valor no topo da pilha de operandos e insere dois valores a baixo.
+ * - Duplica o primeiro ou o segundo valor no topo da pilha de operandos e insere dois valores a baixo.
  */
 void dup2_x1_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *valor1 = PopOperandos(f->p);
@@ -1209,7 +1207,7 @@ void dup2_x1_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Duplica o primeiro ou o segundo valor no topo da pilha de operandos e insere dois ou três valores a baixo.
+ * - Duplica o primeiro ou o segundo valor no topo da pilha de operandos e insere dois ou três valores a baixo.
  */
 void dup2_x2_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *valor1 = PopOperandos(f->p);
@@ -1224,7 +1222,7 @@ void dup2_x2_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Inverte os dois operandos do topo da pilha
+ * - Inverte os dois operandos do topo da pilha
  */
 void swap_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *valor1 = PopOperandos(f->p);
@@ -1235,7 +1233,7 @@ void swap_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Executa uma soma de int
+ * - Executa uma soma de int
  */
 void iadd_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *valor1 = PopOperandos(f->p);
@@ -1249,7 +1247,7 @@ void iadd_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Executa uma soma de long
+ * - Executa uma soma de long
  */
 void ladd_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *low_bytes1 = PopOperandos(f->p);
@@ -1271,7 +1269,7 @@ void ladd_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Executa uma soma de float
+ * - Executa uma soma de float
  */
 void fadd_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *valor1 = PopOperandos(f->p);
@@ -1288,7 +1286,7 @@ void fadd_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Executa uma soma de double
+ * - Executa uma soma de double
  */
 void dadd_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *valor1_low = PopOperandos(f->p);
@@ -1309,7 +1307,7 @@ void dadd_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Executa uma subtração de int
+ * - Executa uma subtração de int
  */
 void isub_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *valor1 = PopOperandos(f->p);
@@ -1320,7 +1318,7 @@ void isub_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Executa uma subtração de long
+ * - Executa uma subtração de long
  */
 void lsub_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *low_bytes1 = PopOperandos(f->p);
@@ -1342,7 +1340,7 @@ void lsub_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Executa uma subtração de float
+ * - Executa uma subtração de float
  */
 void fsub_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *valor1 = PopOperandos(f->p);
@@ -1357,7 +1355,7 @@ void fsub_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Executa uma subtração de double
+ * - Executa uma subtração de double
  */
 void dsub_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *valor1_low = PopOperandos(f->p);
@@ -1378,7 +1376,7 @@ void dsub_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Executa uma multiplicação de int
+ * - Executa uma multiplicação de int
  */
 void imul_impl(frame *f, u1 par1, u1 par2){
 
@@ -1390,7 +1388,7 @@ void imul_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Executa uma multiplicação de long
+ * - Executa uma multiplicação de long
  */
 void lmul_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *low_bytes1 = PopOperandos(f->p);
@@ -1412,7 +1410,7 @@ void lmul_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Executa uma multiplicação de float
+ * - Executa uma multiplicação de float
  */
 void fmul_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *valor1 = PopOperandos(f->p);
@@ -1427,7 +1425,7 @@ void fmul_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Executa uma multiplicação de double
+ * - Executa uma multiplicação de double
  */
 void dmul_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *valor1_low = PopOperandos(f->p);
@@ -1448,7 +1446,7 @@ void dmul_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Executa uma divisão de int
+ * - Executa uma divisão de int
  */
 void idiv_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *valor1 = PopOperandos(f->p);
@@ -1474,7 +1472,7 @@ void idiv_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Executa uma divisão de long
+ * - Executa uma divisão de long
  */
 void ldiv_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *low_bytes1 = PopOperandos(f->p);
@@ -1496,7 +1494,7 @@ void ldiv_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Executa uma divisão de float
+ * - Executa uma divisão de float
  */
 void fdiv_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *valor1 = PopOperandos(f->p);
@@ -1511,7 +1509,7 @@ void fdiv_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Executa uma divisão de double
+ * - Executa uma divisão de double
  */
 void ddiv_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *valor1_low = PopOperandos(f->p);
@@ -1532,7 +1530,7 @@ void ddiv_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Calcula o resto int da divisão entre dois operandos
+ * - Calcula o resto int da divisão entre dois operandos
  */
 void irem_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *valor1 = PopOperandos(f->p);
@@ -1547,7 +1545,7 @@ void irem_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Calcula o resto long da divisão entre dois operandos
+ * - Calcula o resto long da divisão entre dois operandos
  */
 void lrem_impl(frame *f, u1 par1, u1 par2){
 
@@ -1570,7 +1568,7 @@ void lrem_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Calcula o resto float da divisão entre dois operandos
+ * - Calcula o resto float da divisão entre dois operandos
  */
 void frem_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos * valor1 = PopOperandos(f->p);
@@ -1587,7 +1585,7 @@ void frem_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Calcula o resto double da divisão entre dois operandos
+ * - Calcula o resto double da divisão entre dois operandos
  */
 void drem_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *valor1_low = PopOperandos(f->p);
@@ -1608,7 +1606,7 @@ void drem_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Inverte o sinal de um int
+ * - Inverte o sinal de um int
  */
 void ineg_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *valor1 = PopOperandos(f->p);
@@ -1618,7 +1616,7 @@ void ineg_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Inverte o sinal de um long
+ * - Inverte o sinal de um long
  */
 void lneg_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *low_bytes1 = PopOperandos(f->p);
@@ -1634,7 +1632,7 @@ void lneg_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Inverte o sinal de um float
+ * - Inverte o sinal de um float
  */
 void fneg_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *valor1 = PopOperandos(f->p);
@@ -1647,7 +1645,7 @@ void fneg_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Inverte o sinal de um double
+ * - Inverte o sinal de um double
  */
 void dneg_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *valor1_low = PopOperandos(f->p);
@@ -1663,7 +1661,7 @@ void dneg_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Executa um shift left em um int
+ * - Executa um shift left em um int
  */
 void ishl_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *valor1 = PopOperandos(f->p);
@@ -1677,7 +1675,7 @@ void ishl_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Executa um shift left em um long
+ * - Executa um shift left em um long
  */
 void lshl_impl(frame *f, u1 par1, u1 par2){
 
@@ -1699,7 +1697,7 @@ void lshl_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Executa um shift right em um int
+ * - Executa um shift right em um int
  */
 void ishr_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *valor1 = PopOperandos(f->p);
@@ -1713,7 +1711,7 @@ void ishr_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Executa um shift right em um long
+ * - Executa um shift right em um long
  */
 void lshr_impl(frame *f, u1 par1, u1 par2){
 
@@ -1736,7 +1734,7 @@ void lshr_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Executa um shift right lógico em um int
+ * - Executa um shift right lógico em um int
  */
 void iushr_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *valor1 = PopOperandos(f->p);
@@ -1750,7 +1748,7 @@ void iushr_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Executa um shift right lógico em um long
+ * - Executa um shift right lógico em um long
  */
 void lushr_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *valor2 = PopOperandos(f->p);
@@ -1771,7 +1769,7 @@ void lushr_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Executa a operação "AND" de dois int
+ * - Executa a operação "AND" de dois int
  */
 void iand_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *valor1 = PopOperandos(f->p);
@@ -1783,7 +1781,7 @@ void iand_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Executa a operação "AND" de dois long
+ * - Executa a operação "AND" de dois long
  */
 void land_impl(frame *f, u1 par1, u1 par2){
 
@@ -1806,7 +1804,7 @@ void land_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Executa a operação "OR" de dois int
+ * - Executa a operação "OR" de dois int
  */
 void ior_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *valor1 = PopOperandos(f->p);
@@ -1818,7 +1816,7 @@ void ior_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Executa a operação "OR" de dois long
+ * - Executa a operação "OR" de dois long
  */
 void lor_impl(frame *f, u1 par1, u1 par2){
 
@@ -1841,7 +1839,7 @@ void lor_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Executa a operação "XOR" de dois int
+ * - Executa a operação "XOR" de dois int
  */
 void ixor_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *valor1 = PopOperandos(f->p);
@@ -1853,7 +1851,7 @@ void ixor_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Executa a operação "XOR" de dois long
+ * - Executa a operação "XOR" de dois long
  */
 void lxor_impl(frame *f, u1 par1, u1 par2){
 
@@ -1876,7 +1874,7 @@ void lxor_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Instrução para incrementar um valor no vetor de variáveis locais do frame
+ * - Instrução para incrementar um valor no vetor de variáveis locais do frame
  */
 void iinc_impl(frame *f,u1 index, i1 constante){
 	i4 inteiro_constante = (i4) constante;
@@ -1884,7 +1882,7 @@ void iinc_impl(frame *f,u1 index, i1 constante){
 }
 
 /**
- * @brief Função para mapear a execução da instrução iinc
+ * - Função para mapear a execução da instrução iinc
  */
 void iinc_fantasma(frame *par0, u1 par1, u1 par2){
 	i1 valor = (i1)par2;
@@ -1892,7 +1890,7 @@ void iinc_fantasma(frame *par0, u1 par1, u1 par2){
 }
 
 /**
- * @brief Função para mapear a execução da instrução iinc_wide
+ * - Função para mapear a execução da instrução iinc_wide
  */
 void iinc_wide_fantasma(frame *f, u1 indexbyte1, u1 indexbyte2, u1 constbyte1, u1 constbyte2){
 	u2 indexbyte = normaliza_indice(indexbyte1,indexbyte2);
@@ -1902,7 +1900,7 @@ void iinc_wide_fantasma(frame *f, u1 indexbyte1, u1 indexbyte2, u1 constbyte1, u
 }
 
 /**
- * @brief Instrução para incrementar um valor no vetor de variáveis locais do frame
+ * - Instrução para incrementar um valor no vetor de variáveis locais do frame
  */
 void iinc_wide(frame *f, u2 indexbyte, i2 constbyte){
 	i4 inteiro_constante = (i4) constbyte;
@@ -1910,7 +1908,7 @@ void iinc_wide(frame *f, u2 indexbyte, i2 constbyte){
 }
 
 /**
- * @brief Instrução para converter valor inteiro para long
+ * - Instrução para converter valor inteiro para long
  */
 void i2l_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *valor1 = PopOperandos(f->p);
@@ -1924,7 +1922,7 @@ void i2l_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Instrução para converter valor inteiro para float
+ * - Instrução para converter valor inteiro para float
  */
 void i2f_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *valor1 = PopOperandos(f->p);
@@ -1934,7 +1932,7 @@ void i2f_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Instrução para converter valor inteiro para double
+ * - Instrução para converter valor inteiro para double
  */
 void i2d_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *valor1 = PopOperandos(f->p);
@@ -1948,7 +1946,7 @@ void i2d_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Instrução para converter valor long para inteiro
+ * - Instrução para converter valor long para inteiro
  */
 void l2i_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *low_bytes1 = PopOperandos(f->p);
@@ -1958,7 +1956,7 @@ void l2i_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Instrução para converter valor long para float
+ * - Instrução para converter valor long para float
  */
 void l2f_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *low_bytes1 = PopOperandos(f->p);
@@ -1971,7 +1969,7 @@ void l2f_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Instrução para converter valor long para double
+ * - Instrução para converter valor long para double
  */
 void l2d_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *low_bytes1 = PopOperandos(f->p);
@@ -1987,7 +1985,7 @@ void l2d_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Instrução para converter valor float para inteiro
+ * - Instrução para converter valor float para inteiro
  */
 void f2i_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *valor1 = PopOperandos(f->p);
@@ -1996,7 +1994,7 @@ void f2i_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Instrução para converter valor float para long
+ * - Instrução para converter valor float para long
  */
 void f2l_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *valor1 = PopOperandos(f->p);
@@ -2009,7 +2007,7 @@ void f2l_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Instrução para converter valor float para double
+ * - Instrução para converter valor float para double
  */
 void f2d_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *valor1 = PopOperandos(f->p);
@@ -2022,7 +2020,7 @@ void f2d_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Instrução para converter valor double para inteiro
+ * - Instrução para converter valor double para inteiro
  */
 void d2i_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *valor1_low = PopOperandos(f->p);
@@ -2036,7 +2034,7 @@ void d2i_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Instrução para converter valor double para long
+ * - Instrução para converter valor double para long
  */
 void d2l_impl(frame *f, u1 par1, u1 par2){
 
@@ -2056,7 +2054,7 @@ void d2l_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Instrução para converter valor double para float
+ * - Instrução para converter valor double para float
  */
 void d2f_impl(frame *f, u1 par1, u1 par2){
 
@@ -2073,7 +2071,7 @@ void d2f_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Instrução para converter valor inteiro para byte
+ * - Instrução para converter valor inteiro para byte
  */
 void i2b_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *valor1 = PopOperandos(f->p);
@@ -2086,7 +2084,7 @@ void i2b_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Instrução para converter valor inteiro para char
+ * - Instrução para converter valor inteiro para char
  */
 void i2c_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *valor1 = PopOperandos(f->p);
@@ -2099,7 +2097,7 @@ void i2c_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Instrução para converter valor inteiro para short
+ * - Instrução para converter valor inteiro para short
  */
 void i2s_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *valor1 = PopOperandos(f->p);
@@ -2112,7 +2110,7 @@ void i2s_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Instrução que compara valores long oriundos da pilha de operandos
+ * - Instrução que compara valores long oriundos da pilha de operandos
  */
 void lcmp_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *low_bytes1 = PopOperandos(f->p);
@@ -2138,7 +2136,7 @@ void lcmp_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Instrução que compara valores float oriundos da pilha de operandos
+ * - Instrução que compara valores float oriundos da pilha de operandos
  */
 void fcmpl_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *valor1 = PopOperandos(f->p);
@@ -2159,7 +2157,7 @@ void fcmpl_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Instrução que compara valores float oriundos da pilha de operandos
+ * - Instrução que compara valores float oriundos da pilha de operandos
  */
 void fcmpg_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *valor1 = PopOperandos(f->p);
@@ -2181,7 +2179,7 @@ void fcmpg_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Instrução que compara valores double oriundos da pilha de operandos
+ * - Instrução que compara valores double oriundos da pilha de operandos
  */
 void dcmpl_impl(frame *f, u1 par1, u1 par2){
 
@@ -2206,7 +2204,7 @@ void dcmpl_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Instrução que compara valores double oriundos da pilha de operandos
+ * - Instrução que compara valores double oriundos da pilha de operandos
  */
 void dcmpg_impl(frame *f, u1 par1, u1 par2){
 
@@ -2231,7 +2229,7 @@ void dcmpg_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Instrução que compara valor da pilha de operandos com zero, verificando se são iguais
+ * - Instrução que compara valor da pilha de operandos com zero, verificando se são iguais
  */
 void ifeq_impl(frame *f, u1 branchbyte1, u1 branchbyte2){
 	pilha_operandos *valor = PopOperandos(f->p);
@@ -2245,7 +2243,7 @@ void ifeq_impl(frame *f, u1 branchbyte1, u1 branchbyte2){
 }
 
 /**
- * @brief Instrução que compara valor da pilha de operandos com zero, verificando se são diferentes
+ * - Instrução que compara valor da pilha de operandos com zero, verificando se são diferentes
  */
 void ifne_impl(frame *f, u1 branchbyte1, u1 branchbyte2){
 
@@ -2260,7 +2258,7 @@ void ifne_impl(frame *f, u1 branchbyte1, u1 branchbyte2){
 }
 
 /**
- * @brief Instrução que compara valor da pilha de operandos com zero, verificando se o valor da pilha de operandos é menor que zero
+ * - Instrução que compara valor da pilha de operandos com zero, verificando se o valor da pilha de operandos é menor que zero
  */
 void iflt_impl(frame *f, u1 branchbyte1, u1 branchbyte2){
 
@@ -2275,7 +2273,7 @@ void iflt_impl(frame *f, u1 branchbyte1, u1 branchbyte2){
 }
 
 /**
- * @brief Branch será efetuado se o inteiro no topo da pilha for maior ou igual ao valor zero
+ * - Branch será efetuado se o inteiro no topo da pilha for maior ou igual ao valor zero
  */
 void ifge_impl(frame *f, u1 branchbyte1, u1 branchbyte2){
 	pilha_operandos *valor = PopOperandos(f->p);
@@ -2289,7 +2287,7 @@ void ifge_impl(frame *f, u1 branchbyte1, u1 branchbyte2){
 }
 
 /**
- * @brief Branch será efetuado se o inteiro no topo da pilha for maior do que o valor zero
+ * - Branch será efetuado se o inteiro no topo da pilha for maior do que o valor zero
  */
 void ifgt_impl(frame *f, u1 branchbyte1, u1 branchbyte2){
 	pilha_operandos *valor = PopOperandos(f->p);
@@ -2303,7 +2301,7 @@ void ifgt_impl(frame *f, u1 branchbyte1, u1 branchbyte2){
 }
 
 /**
- * @brief Branch será efetuado se o inteiro no topo da pilha for menor do que o valor zero
+ * - Branch será efetuado se o inteiro no topo da pilha for menor do que o valor zero
  */
 void ifle_impl(frame *f, u1 branchbyte1, u1 branchbyte2){
 	pilha_operandos *valor = PopOperandos(f->p);
@@ -2317,7 +2315,7 @@ void ifle_impl(frame *f, u1 branchbyte1, u1 branchbyte2){
 }
 
 /**
- * @brief Branch será efetuado se o inteiro no topo da pilha for igual ao próximo inteiro na pilha
+ * - Branch será efetuado se o inteiro no topo da pilha for igual ao próximo inteiro na pilha
  */
 void if_icmpeq_impl(frame *f, u1 branchbyte1, u1 branchbyte2){
 	pilha_operandos *valor1 = PopOperandos(f->p);
@@ -2332,7 +2330,7 @@ void if_icmpeq_impl(frame *f, u1 branchbyte1, u1 branchbyte2){
 }
 
 /**
- * @brief Branch será efetuado se o inteiro no topo da pilha for diferente do próximo inteiro na pilha
+ * - Branch será efetuado se o inteiro no topo da pilha for diferente do próximo inteiro na pilha
  */
 void if_icmpne_impl(frame *f, u1 branchbyte1, u1 branchbyte2){
 	pilha_operandos *valor1 = PopOperandos(f->p);
@@ -2347,7 +2345,7 @@ void if_icmpne_impl(frame *f, u1 branchbyte1, u1 branchbyte2){
 }
 
 /**
- * @brief Branch será efetuado se o inteiro no topo da pilha for maior do que o próximo inteiro na pilha
+ * - Branch será efetuado se o inteiro no topo da pilha for maior do que o próximo inteiro na pilha
  */
 void if_icmplt_impl(frame *f, u1 branchbyte1, u1 branchbyte2){
 	pilha_operandos *valor1 = PopOperandos(f->p);
@@ -2362,7 +2360,7 @@ void if_icmplt_impl(frame *f, u1 branchbyte1, u1 branchbyte2){
 }
 
 /**
- * @brief Branch será efetuado se o inteiro no topo da pilha for menor do que o próximo inteiro na pilha
+ * - Branch será efetuado se o inteiro no topo da pilha for menor do que o próximo inteiro na pilha
  */
 void if_icmpge_impl(frame *f, u1 branchbyte1, u1 branchbyte2){
 	pilha_operandos *valor1 = PopOperandos(f->p);
@@ -2377,7 +2375,7 @@ void if_icmpge_impl(frame *f, u1 branchbyte1, u1 branchbyte2){
 }
 
 /**
- * @brief Branch será efetuado se o inteiro no topo da pilha for menor do que o próximo inteiro na pilha
+ * - Branch será efetuado se o inteiro no topo da pilha for menor do que o próximo inteiro na pilha
  */
 void if_icmpgt_impl(frame *f, u1 branchbyte1, u1 branchbyte2){
 	pilha_operandos *valor1 = PopOperandos(f->p);
@@ -2392,7 +2390,7 @@ void if_icmpgt_impl(frame *f, u1 branchbyte1, u1 branchbyte2){
 }
 
 /**
- * @brief Branch será efetuado se o inteiro no topo da pilha for maior do que o próximo inteiro na pilha
+ * - Branch será efetuado se o inteiro no topo da pilha for maior do que o próximo inteiro na pilha
  */
 void if_icmple_impl(frame *f, u1 branchbyte1, u1 branchbyte2){
 	pilha_operandos *valor1 = PopOperandos(f->p);
@@ -2407,7 +2405,7 @@ void if_icmple_impl(frame *f, u1 branchbyte1, u1 branchbyte2){
 }
 
 /**
- * @brief Branch será efetuado se as referências na pilha forem iguais
+ * - Branch será efetuado se as referências na pilha forem iguais
  */
 void acmpeq_impl(frame *f, u1 branchbyte1, u1 branchbyte2){
 	pilha_operandos *valor1 = PopOperandos(f->p);
@@ -2422,7 +2420,7 @@ void acmpeq_impl(frame *f, u1 branchbyte1, u1 branchbyte2){
 }
 
 /**
- * @brief Branch será efetuado se as referências na pilha não forem iguais
+ * - Branch será efetuado se as referências na pilha não forem iguais
  */
 void acmpne_impl(frame *f, u1 branchbyte1, u1 branchbyte2){
 	pilha_operandos *valor1 = PopOperandos(f->p);
@@ -2437,7 +2435,7 @@ void acmpne_impl(frame *f, u1 branchbyte1, u1 branchbyte2){
 }
 
 /**
- * @brief A instrução sempre efetuará um branch
+ * - A instrução sempre efetuará um branch
  */
 void inst_goto_impl(frame *f,u1 branchbyte1, u1 branchbyte2){
 	int8_t bb1 = (int8_t)branchbyte1;
@@ -2448,7 +2446,7 @@ void inst_goto_impl(frame *f,u1 branchbyte1, u1 branchbyte2){
 }
 
 /**
- * @brief Instrução para efetuar um branch para um offset, dentro do código do mesmo método sendo executado
+ * - Instrução para efetuar um branch para um offset, dentro do código do mesmo método sendo executado
  */
 void jsr_impl(frame *f, u1 branchbyte1, u1 branchbyte2){
 	int8_t v1 = (int8_t)branchbyte1;
@@ -2458,25 +2456,25 @@ void jsr_impl(frame *f, u1 branchbyte1, u1 branchbyte2){
 }
 
 /**
- * @brief Instrução para retornar de uma subrotina
+ * - Instrução para retornar de uma subrotina
  */
 void ret_impl(frame *f,u1 index, u1 par){
 }
 
 /**
- * @brief Instrução utilizada como placeholder, para ocupar a posição no array de instruções, para não prejudicar o mapeamento direto
+ * - Instrução utilizada como placeholder, para ocupar a posição no array de instruções, para não prejudicar o mapeamento direto
  */
 void tableswitch_fantasma(frame *par0, u1 par1, u1 par2){
 }
 
 /**
- * @brief Instrução utilizada como placeholder, para ocupar a posição no array de instruções, para não prejudicar o mapeamento direto
+ * - Instrução utilizada como placeholder, para ocupar a posição no array de instruções, para não prejudicar o mapeamento direto
  */
 void lookupswitch_fantasma(frame *par0, u1 par1, u1 par2){
 }
 
 /**
- * @brief Instrução para retornar um inteiro de um método
+ * - Instrução para retornar um inteiro de um método
  */
 void ireturn_impl(frame *f, u1 par1, u1 par2){
 
@@ -2487,7 +2485,7 @@ void ireturn_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Instrução para retornar um long de um método
+ * - Instrução para retornar um long de um método
  */
 void lreturn_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *low_bytes = PopOperandos(f->p);
@@ -2500,7 +2498,7 @@ void lreturn_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Instrução para retornar um float de um método
+ * - Instrução para retornar um float de um método
  */
 void freturn_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *valor = PopOperandos(f->p);
@@ -2509,7 +2507,7 @@ void freturn_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Instrução para retornar um double de um método
+ * - Instrução para retornar um double de um método
  */
 void dreturn_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *low_bytes = PopOperandos(f->p);
@@ -2520,21 +2518,21 @@ void dreturn_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Instrução para retornar uma referência de um método
+ * - Instrução para retornar uma referência de um método
  */
 void areturn_impl(frame *f, u1 par1, u1 par2){
 	PopOperandos(f->p);
 }
 
 /**
- * @brief Instrução para retornar void de um método
+ * - Instrução para retornar void de um método
  */
 void inst_return_impl(frame *f, u1 par1, u1 par2){
 	PopFrames(jvm->frames);
 }
 
 /**
- * @brief Instrução para obter um field estático de uma classe
+ * - Instrução para obter um field estático de uma classe
  */
 void getstatic_impl(frame *f, u1 indexbyte1, u1 indexbyte2){
 
@@ -2593,7 +2591,7 @@ void getstatic_impl(frame *f, u1 indexbyte1, u1 indexbyte2){
 }
 
 /**
- * @brief Instrução para setar um field estático em uma classe
+ * - Instrução para setar um field estático em uma classe
  */
 void putstatic_impl(frame *f, u1 indexbyte1, u1 indexbyte2){
 	u2 indice_cp = (indexbyte1 << 8) | indexbyte2;
@@ -2644,7 +2642,7 @@ void putstatic_impl(frame *f, u1 indexbyte1, u1 indexbyte2){
 }
 
 /**
- * @brief Funcao para verificar se um metodo é do tipo static
+ * - Funcao para verificar se um metodo é do tipo static
  */
 bool buscaStaticFlags (char * accessFlags) {
 	char * acc = (char*) malloc(100*sizeof(char));
@@ -2662,7 +2660,7 @@ bool buscaStaticFlags (char * accessFlags) {
 }
 
 /**
- * @brief Instrução para obter o field de um objeto
+ * - Instrução para obter o field de um objeto
  */
 void getfield_impl(frame *f, u1 indexbyte1, u1 indexbyte2){
     u2 indice_cp = (indexbyte1 << 8) | indexbyte2;
@@ -2706,7 +2704,7 @@ void getfield_impl(frame *f, u1 indexbyte1, u1 indexbyte2){
 }
 
 /**
- * @brief Função para obter o tipo de operando que sera alocado na pilha de operandos
+ * - Função para obter o tipo de operando que sera alocado na pilha de operandos
  */
 int getTipoOperandoSaida(char * descriptorRetorno) {
 	switch (*descriptorRetorno) {
@@ -2733,7 +2731,7 @@ int getTipoOperandoSaida(char * descriptorRetorno) {
 }
 
 /**
- * @brief Função para obter o modo de empilhamento do valor de retorno de um método
+ * - Função para obter o modo de empilhamento do valor de retorno de um método
  */
 int getTipoRetorno (char * descriptor) {
 	switch (*descriptor) {
@@ -2754,7 +2752,7 @@ int getTipoRetorno (char * descriptor) {
 }
 
 /**
- * @brief Instrução para setar um field em um objeto
+ * - Instrução para setar um field em um objeto
  */
 void putfield_impl(frame *f, u1 indexbyte1, u1 indexbyte2){
     u2 indice_cp = (indexbyte1 << 8) | indexbyte2;
@@ -2795,7 +2793,7 @@ void putfield_impl(frame *f, u1 indexbyte1, u1 indexbyte2){
 }
 
 /**
- * @brief Função para obter a posição do field no array de dados de instância
+ * - Função para obter a posição do field no array de dados de instância
  */
 int getPositionField (ClassFile * obj, char * nomeField) {
 	ClassFile * aux = obj;
@@ -2812,7 +2810,7 @@ int getPositionField (ClassFile * obj, char * nomeField) {
 }
 
 /**
- * @brief Função para buscar um objeto na lista de objetos
+ * - Função para buscar um objeto na lista de objetos
  */
 Lista_Objetos * buscaObjetoViaReferencia (ClassFile * p) {
 	Lista_Objetos * auxiliarObjetos;
@@ -2825,7 +2823,7 @@ Lista_Objetos * buscaObjetoViaReferencia (ClassFile * p) {
 }
 
 /**
- * @brief Função para invocar um método de instância, geralmente utilizada para impressão em tela
+ * - Função para invocar um método de instância, geralmente utilizada para impressão em tela
  */
 void invokevirtual_impl(frame *f, u1 indexbyte1, u1 indexbyte2){
 
@@ -2965,7 +2963,7 @@ void invokevirtual_impl(frame *f, u1 indexbyte1, u1 indexbyte2){
 }
 
 /**
- * @brief Instrução para invocar um método de instância
+ * - Instrução para invocar um método de instância
  */
 void invokespecial_impl(frame *f, u1 indexbyte1, u1 indexbyte2){
 	u2 indice_cp = normaliza_indice(indexbyte1,indexbyte2);
@@ -3028,7 +3026,7 @@ void invokespecial_impl(frame *f, u1 indexbyte1, u1 indexbyte2){
 }
 
 /**
- * @brief Função para obter a quantidade de parâmetros a serem passados para um método
+ * - Função para obter a quantidade de parâmetros a serem passados para um método
  */
 int getParametrosCount (char * descriptor) {
 	int sizeChar = strlen(descriptor);
@@ -3063,7 +3061,7 @@ int getParametrosCount (char * descriptor) {
 }
 
 /**
- * @brief Instrução para invocar um método estático (método de classe)
+ * - Instrução para invocar um método estático (método de classe)
  */
 void invokestatic_impl(frame *f, u1 indexbyte1, u1 indexbyte2){
 
@@ -3115,7 +3113,7 @@ void invokestatic_impl(frame *f, u1 indexbyte1, u1 indexbyte2){
 }
 
 /**
- * @brief Instrução para invocar um método de interface
+ * - Instrução para invocar um método de interface
  */
 void invokeinterface_impl(frame *f, u1 indexbyte1, u1 indexbyte2, u1 count){
 	u2 indice_cp = normaliza_indice(indexbyte1,indexbyte2);
@@ -3155,21 +3153,21 @@ void invokeinterface_impl(frame *f, u1 indexbyte1, u1 indexbyte2, u1 count){
 }
 
 /**
- * @brief Instrução utilizada como placeholder, para ocupar a posição no array de instruções, para não prejudicar o mapeamento direto
+ * - Instrução utilizada como placeholder, para ocupar a posição no array de instruções, para não prejudicar o mapeamento direto
  */
 void invokeinterface_fantasma(frame *par0, u1 par1, u1 par2){
 
 }
 
 /**
- * @brief Instrução para invocar um método dinâmico. Essa instrução só existe para criar uma posição "falsa" no vetor de ponteiros de função
+ * - Instrução para invocar um método dinâmico. Essa instrução só existe para criar uma posição "falsa" no vetor de ponteiros de função
  */
 void invokedynamic_fantasma(frame *par0, u1 par1, u1 par2){
 
 }
 
 /**
- * @brief Instrução para criar um novo objeto
+ * - Instrução para criar um novo objeto
  */
 void inst_new_impl(frame *f, u1 indexbyte1, u1 indexbyte2){
 	u2 indice_cp = (indexbyte1 << 8) | indexbyte2;
@@ -3181,7 +3179,7 @@ void inst_new_impl(frame *f, u1 indexbyte1, u1 indexbyte2){
 }
 
 /**
- * @brief Função para instanciar um novo objeto
+ * - Função para instanciar um novo objeto
  */
 ClassFile * instanciarClasse (char * nomeClasse) {
 	char * saida = (char*)malloc((strlen(nomeClasse)+8)*sizeof(char));
@@ -3192,7 +3190,7 @@ ClassFile * instanciarClasse (char * nomeClasse) {
 }
 
 /**
- * @brief Funcao para inserir um objeto novo na lista de objetos
+ * - Funcao para inserir um objeto novo na lista de objetos
  */
 Lista_Objetos * InsereObjeto (Lista_Objetos * lis, ClassFile * classe, int parametrosNaoStatic) {
 	Lista_Objetos * objeto = (Lista_Objetos*)malloc(sizeof(Lista_Objetos));
@@ -3219,7 +3217,7 @@ Lista_Objetos * InsereObjeto (Lista_Objetos * lis, ClassFile * classe, int param
 }
 
 /**
- * @brief Funcao para obter a quantidade de campos da classe que nao sao estaticos
+ * - Funcao para obter a quantidade de campos da classe que nao sao estaticos
  */
 int getParametrosNaoStatic (ClassFile * classe) {
 	ClassFile * classeAux = classe;
@@ -3235,7 +3233,7 @@ int getParametrosNaoStatic (ClassFile * classe) {
 }
 
 /**
- * @brief Função para criar um novo array de um dado tipo
+ * - Função para criar um novo array de um dado tipo
  */
 void newarray_impl(frame *f, u1 atype, u1 par1){
 	pilha_operandos *count = PopOperandos(f->p);
@@ -3357,13 +3355,13 @@ void newarray_impl(frame *f, u1 atype, u1 par1){
 }
 
 /**
- * @brief Criar um novo array do tipo referência
+ * - Criar um novo array do tipo referência
  */
 void anewarray_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Instrução para obter o tamanho de um array
+ * - Instrução para obter o tamanho de um array
  */
 void arraylength_impl(frame *f, u1 par1, u1 par2){
 	pilha_operandos *array_ref = PopOperandos(f->p);
@@ -3444,49 +3442,49 @@ void arraylength_impl(frame *f, u1 par1, u1 par2){
 }
 
 /**
- * @brief Instrução para lançar uma exceção ou erro
+ * - Instrução para lançar uma exceção ou erro
  */
 void athrow_impl(frame *f, u1 par1, u1 par2){
 
 }
 
 /**
- * @brief Instrução para verificar se um objeto é de um determinado tipo
+ * - Instrução para verificar se um objeto é de um determinado tipo
  */
 void checkcast_impl(frame *f, u1 par1, u1 par2){
 
 }
 
 /**
- * @brief Instrução para determinar se um objeto é de um eterminado tipo
+ * - Instrução para determinar se um objeto é de um eterminado tipo
  */
 void instanceof_impl(frame *f, u1 par1, u1 par2){
 
 }
 
 /**
- * @brief Instrução para entrar no monitor de um objeto
+ * - Instrução para entrar no monitor de um objeto
  */
 void monitorenter_impl(frame *f, u1 par1, u1 par2){
 
 }
 
 /**
- * @brief Instrução para sair de um monitor de um objeto
+ * - Instrução para sair de um monitor de um objeto
  */
 void monitorexit_impl(frame *f, u1 par1, u1 par2){
 
 }
 
 /**
- * @brief Instrução para estender a próxima instrução para ter o dobro de bytes de índice. 
+ * - Instrução para estender a próxima instrução para ter o dobro de bytes de índice. 
  */
 void wide_impl(frame *f, u1 indexbyte1, u1 indexbyte2){
 	return;
 }
 
 /**
- * @brief Instrução utilizada como placeholder, para ocupar a posição no array de instruções, para não prejudicar o mapeamento direto
+ * - Instrução utilizada como placeholder, para ocupar a posição no array de instruções, para não prejudicar o mapeamento direto
  */
 void multianewarray_fantasma(frame *f, u1 par1, u1 par2){
 
@@ -3564,7 +3562,7 @@ void* inicializa_multiarray_recursivo(void* endereco, i4* counts, char* tipos){
 }
 
 /**
- * @brief Instrução que irá criar um array multidimensional
+ * - Instrução que irá criar um array multidimensional
  */
 void multianewarray_impl(frame *f, u1 indexbyte1, u1 indexbyte2, u1 dimensions){
 
@@ -3588,7 +3586,7 @@ void multianewarray_impl(frame *f, u1 indexbyte1, u1 indexbyte2, u1 dimensions){
 }
 
 /**
- * @brief Instrução que irá efetuar um branch caso a referência no topo da pilha seja nula
+ * - Instrução que irá efetuar um branch caso a referência no topo da pilha seja nula
  */
 void ifnull_impl(frame *f, u1 branchbyte1, u1 branchbyte2){
 	pilha_operandos *valor = PopOperandos(f->p);
@@ -3604,7 +3602,7 @@ void ifnull_impl(frame *f, u1 branchbyte1, u1 branchbyte2){
 }
 
 /**
- * @brief Instrução que irá efetuar um branch caso a referência no topo da pilha não seja nula
+ * - Instrução que irá efetuar um branch caso a referência no topo da pilha não seja nula
  */
 void ifnonnull_impl(frame *f, u1 branchbyte1, u1 branchbyte2){
 	pilha_operandos *valor = PopOperandos(f->p);
@@ -3620,21 +3618,21 @@ void ifnonnull_impl(frame *f, u1 branchbyte1, u1 branchbyte2){
 }
 
 /**
- * @brief A instrução sempre efetuará um branch, para um offset wide
+ * - A instrução sempre efetuará um branch, para um offset wide
  */
 void goto_w_impl(frame *f, u1 par1, u1 par2){
 
 }
 
 /**
- * @brief Instrução para efetuar um branch para um offset wide, de 32 bits, dentro do código do mesmo método sendo executado
+ * - Instrução para efetuar um branch para um offset wide, de 32 bits, dentro do código do mesmo método sendo executado
  */
 void jsr_w_impl(frame *f, u1 par1, u1 par2){
 
 }
 
 /**
- * @brief Funcao para decodificar operandos em um valor double (64 bits)
+ * - Funcao para decodificar operandos em um valor double (64 bits)
  */
 double decodificaDoubleValor (u4 high, u4 low) {
 	u8 valor = ((u8)(high)<<32) | (u8)low;
@@ -3644,7 +3642,7 @@ double decodificaDoubleValor (u4 high, u4 low) {
 }
 
 /**
- * @brief Funcao para decodificar operando em valor long (64 bits)
+ * - Funcao para decodificar operando em valor long (64 bits)
  */
 long decodificaLongValor (u4 high, u4 low) {
 	u8 valor = ((u8)(high)<<32) | (u8)low;
@@ -3653,7 +3651,7 @@ long decodificaLongValor (u4 high, u4 low) {
 }
 
 /**
- * @brief Funcao para decodificar operando em valor float (32 bits)
+ * - Funcao para decodificar operando em valor float (32 bits)
  */
 float decodificaFloatValor (u4 valor) {
 	float retorno = (float)(*(float*)&valor);

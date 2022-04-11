@@ -1,12 +1,12 @@
-/**
- * @file pilhaOperandos.c
- * @brief Arquivo de implementacao das funcoes utilizadas pela Pilha de Operandos
+/*
+ pilhaOperandos.c
+ Arquivo de implementação das funcões utilizadas pela Pilha de Operandos
  */
 
 #include "pilhaOperandos.h"
 
-/**
- * @brief Cria uma nova Pilha de Operandos
+/*
+ Cria uma Pilha de Operandos
  */
 pilha_operandos* CriaPilhaOperandos(){
 	pilha_operandos *pilha = malloc(sizeof(pilha_operandos));
@@ -14,16 +14,16 @@ pilha_operandos* CriaPilhaOperandos(){
 	return (pilha);
 }
 
-/**
- * @brief Insere um novo operando na Pilha de Operandos
+/*
+  coloca um novo operando na Pilha de Operandos
  */
 pilha_operandos* PushOperandos(pilha_operandos *pilha, u4 operando, void *referencia, u1 tipo_operando){
 	pilha->topo = InsereInicioOperandos(pilha->topo,operando,referencia,tipo_operando);
 	return (pilha);
 }
 
-/**
- * @brief Remove o operando do topo da Pilha de Operandos
+/*
+  Remove o operando do topo da Pilha de Operandos
  */
 pilha_operandos* PopOperandos(pilha_operandos *pilha){
 	pilha_operandos *aux = CriaPilhaOperandos();
@@ -32,8 +32,8 @@ pilha_operandos* PopOperandos(pilha_operandos *pilha){
 	return (aux);
 }
 
-/**
- * @brief Informa se a Pilha de Operandos esta vazia
+/*
+  verifica se Pilha de Operandos esta vazia ou não
  */
 bool pilhaVazia (pilha_operandos * pilha){
 	if (pilha->topo == NULL)
@@ -42,8 +42,8 @@ bool pilhaVazia (pilha_operandos * pilha){
 		return false;
 }
 
-/**
- * @brief Informa se o opernando no topo da Pilha de Operandos é um salto de linha
+/*
+  Informa se o opernando no topo da Pilha de Operandos é um salto de linha
  */
 bool printVazio (pilha_operandos * pilha) {
 	int contador = 0;
@@ -58,15 +58,15 @@ bool printVazio (pilha_operandos * pilha) {
 		return false;
 }
 
-/**
- * @brief Acessa o topo da Pilha de Operandos
+/*
+  Acessa o topo da Pilha de Operandos
  */
 pilha_operandos* TopoOperandos(pilha_operandos *pilha){
 	return (pilha);
 }
 
-/**
- * @brief Imprime na tela o conteudo da Pilha de Operandos
+/*
+ Printa na tela o conteudo da Pilha de Operandos
  */
 void ImprimePilhaOperandos(pilha_operandos *pilha){
 	ImprimeListaOperandos(pilha->topo);

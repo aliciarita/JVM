@@ -1,7 +1,7 @@
 
-/* *
-* @arquivo lista_classes.c
-* @brief Funções de manipulação da lista de classes
+/* 
+ lista_classes.c
+ Funções de manipulação da lista de classes
  */
 
 #include <stdio.h>
@@ -10,7 +10,7 @@
 #include "listaClasses.h"
 #include "leitor.h"
 
-
+// Verifica se a lista está vaiza
 classesCarregadas* CriarLista_classes(){
 	return NULL;
 }
