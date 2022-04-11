@@ -5,7 +5,7 @@
  Funções de controle da lista de operadores
  */
 
-#include "listaOperandos.h
+#include "listaOperandos.h"
 
 lista_operandos* CriarLista_operandos(){
 	return NULL;
