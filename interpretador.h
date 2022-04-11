@@ -290,6 +290,15 @@ void dconst_0_impl(frame *f, u1 par1, u1 par2);
 void dconst_1_impl(frame *f, u1 par1, u1 par2);
 
 /**
+ * Faz o push de um byte na pilha de operandos
+ * *f Ponteiro para o frame
+ * Byte a ser empilhado
+ * par1 Parâmetro não utilizado
+ */
+
+void bipush_impl(frame *f, u1 byte, u1 par1);
+
+/**
  *  Faz o push de um short na pilha de operandos
  *  *f Ponteiro para o frame
  *  byte Primeiro byte do short
