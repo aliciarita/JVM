@@ -47,7 +47,7 @@ JVM* InicializarJVM() {
 	instrucoes = constroeInstrucoes();
 	return novo;
 }
-*/
+
 /**
  *  função para criar um frame com valores default
  */
