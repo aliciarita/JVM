@@ -11,7 +11,7 @@ ou
 
 Será gerado um arquivo executável, que receber um arquivo ".class", para o Windows:
 
-> ./a.exe nome_do_arquivo.class
+> a.exe nome_do_arquivo.class
 
 Para o Linux:
 
