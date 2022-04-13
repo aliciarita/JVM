@@ -1,0 +1,29 @@
+digraph "criarFrame"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="RL";
+  Node1 [label="criarFrame",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Funcao para criar um frame com valores default."];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="executarMetodo",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$jvm_8c.html#a7597ae8a141cbaf8e5798ae021bf2d09",tooltip="Funcao para executar o codigo de um metodo."];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="executarJVM",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$jvm_8c.html#a713d35f536711d10380226694fa8721b",tooltip="Funcao que inicia a interpretacao do arquivo .class."];
+  Node3 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="main",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$main_8c.html#abf9e6b7e6f15df4b525a2e7705ba3089",tooltip="Função main do programa."];
+  Node2 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="invokeinterface_impl",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$interpretador_8c.html#a35957a03e4492547d2e84aba71d83613",tooltip="Instrução para invocar um método de interface."];
+  Node5 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="interpretaCode",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$jvm_8c.html#a287ab0660848624139fcb0bafbdf4a58",tooltip="Funcao para interpretar as instrucoes do codigo de um metodo."];
+  Node6 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="invokespecial_impl",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$interpretador_8c.html#ac1f0ebb9e8dd948c2c9526f225e04f6f",tooltip="Instrução para invocar um método de instância."];
+  Node2 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="invokestatic_impl",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$interpretador_8c.html#ac62c789b89726a00edcab417648306be",tooltip="Instrução para invocar um método estático (método de classe)"];
+  Node2 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="invokevirtual_impl",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$interpretador_8c.html#a87210c88c859a1e732355a7ead1e2638",tooltip="Função para invocar um método de instância, geralmente utilizada para impressão em tela."];
+  Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+}

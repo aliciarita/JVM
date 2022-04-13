@@ -1,0 +1,18 @@
+digraph "criarFrame"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="criarFrame",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Funcao para criar um frame com valores default."];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="BuscarCPClasseCorrente\l_classes",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$lista_classes_8c.html#ad8560f0f4841666ef88a473369ce5c6f",tooltip=" "];
+  Node2 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="BuscarElemento_classes",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$lista_classes_8c.html#a687e56f2a089b97b91081490343e0fd6",tooltip=" "];
+  Node3 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="decodificaNIeNT",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$leitor_8c.html#a647bf2bd91c9d6741d5e82bad273acb0",tooltip="Função para decodificar uma entrada da Constant Pool."];
+  Node4 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="decodificaStringUTF8",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$leitor_8c.html#a01fd19f088758f2551a518310fccf3bd",tooltip="Função que retorna a string UTF8 da entrada da constant pool recebida como parâmetro."];
+  Node1 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="CriaPilhaOperandos",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$pilha_operandos_8c.html#aeb3d914b6c938b98aa7d4a901c3b777d",tooltip="Cria uma nova Pilha de Operandos."];
+}

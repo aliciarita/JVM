@@ -1,7 +1,7 @@
 var jvm_8c =
 [
     [ "atualizarPCMetodoAtual", "jvm_8c.html#a414fc2572002991a93d18ec556606429", null ],
-    [ "criarFrame", "jvm_8c.html#a0d2b3c114cc85173078cc1d6700d2477", null ],
+    [ "criarFrame", "jvm_8c.html#a54c14abbdf557cfff010c4f8c112ef42", null ],
     [ "CriarJVM", "jvm_8c.html#acabc8227256b91ad7ce7ce2007f36f4d", null ],
     [ "executarJVM", "jvm_8c.html#a713d35f536711d10380226694fa8721b", null ],
     [ "executarMetodo", "jvm_8c.html#a7597ae8a141cbaf8e5798ae021bf2d09", null ],

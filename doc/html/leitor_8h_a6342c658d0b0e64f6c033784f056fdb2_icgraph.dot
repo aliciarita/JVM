@@ -1,0 +1,16 @@
+digraph "decodificaAccessFlags"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="RL";
+  Node1 [label="decodificaAccessFlags",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Função para decodificar o access flag enviado como parâmetro."];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="getstatic_impl",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$interpretador_8c.html#aab8bb241f38d5254b4eb6a8d098bebfb",tooltip="Instrução para obter um field estático de uma classe."];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="imprimirClassFile",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$leitor_8c.html#a08eb19cb2eaa414dc427e87098c7d84d",tooltip="Função para imprimir um arquivo .class lido."];
+  Node3 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="main",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$main_8c.html#abf9e6b7e6f15df4b525a2e7705ba3089",tooltip="Função main do programa."];
+  Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="putstatic_impl",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$interpretador_8c.html#a81bc4af9e545ed38b0a62650bf2ead42",tooltip="Instrução para setar um field estático em uma classe."];
+}

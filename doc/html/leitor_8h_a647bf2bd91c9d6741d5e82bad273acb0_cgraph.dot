@@ -1,0 +1,10 @@
+digraph "decodificaNIeNT"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="decodificaNIeNT",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Função para decodificar uma entrada da Constant Pool."];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="decodificaStringUTF8",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$leitor_8c.html#a01fd19f088758f2551a518310fccf3bd",tooltip="Função que retorna a string UTF8 da entrada da constant pool recebida como parâmetro."];
+}

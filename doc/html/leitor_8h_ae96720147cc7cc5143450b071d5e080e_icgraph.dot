@@ -1,0 +1,17 @@
+digraph "decodificaLongInfo"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="RL";
+  Node1 [label="decodificaLongInfo",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Função para decodificar uma entrada long na constant pool."];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="decodificarOperandoInstrucao",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$leitor_8c.html#aeaa54f6e39aaf8b1e3fb761c97e2c7ea",tooltip="Função para decodificar os argumentos de uma instrução."];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="decodificarCode",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$leitor_8c.html#a17c7bcbe9079ec699df46cfb4471660d",tooltip="Função para decodificar o atributo Code de um método."];
+  Node3 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="imprimirClassFile",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$leitor_8c.html#a08eb19cb2eaa414dc427e87098c7d84d",tooltip="Função para imprimir um arquivo .class lido."];
+  Node4 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="main",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$main_8c.html#abf9e6b7e6f15df4b525a2e7705ba3089",tooltip="Função main do programa."];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+}

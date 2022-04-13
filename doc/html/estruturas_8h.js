@@ -105,7 +105,22 @@ var estruturas_8h =
       [ "ABSTRACT", "estruturas_8h.html#aaea667445c15617b5c6ad01f0e53b481a7b62cfe03ccf259e4f0a1be2bf90491f", null ],
       [ "STRICT", "estruturas_8h.html#aaea667445c15617b5c6ad01f0e53b481a459b52e1bdb128570809aba2a4c92d2c", null ],
       [ "SYNTHETIC", "estruturas_8h.html#aaea667445c15617b5c6ad01f0e53b481a71f76fa1f9dd08a6852a5ed13669c95f", null ],
-      [ "ENUM", "estruturas_8h.html#aaea667445c15617b5c6ad01f0e53b481a5bc38f5ef3a09fbc02c3f3576277a5b9", null ]
+      [ "ENUM", "estruturas_8h.html#aaea667445c15617b5c6ad01f0e53b481a5bc38f5ef3a09fbc02c3f3576277a5b9", null ],
+      [ "PUBLIC", "_leitor_exibidor_2estruturas_8h.html#aaea667445c15617b5c6ad01f0e53b481ae81e3f79af4b80e22c6b86d63ea397bf", null ],
+      [ "PRIVATE", "_leitor_exibidor_2estruturas_8h.html#aaea667445c15617b5c6ad01f0e53b481a0f0fd409954c4ec858e4cd7594059792", null ],
+      [ "PROTECTED", "_leitor_exibidor_2estruturas_8h.html#aaea667445c15617b5c6ad01f0e53b481a4eca054070419f48846f93d1e09f2ac6", null ],
+      [ "STATIC", "_leitor_exibidor_2estruturas_8h.html#aaea667445c15617b5c6ad01f0e53b481ae55a36a850c67d46b3b3325de7fce0b8", null ],
+      [ "FINAL", "_leitor_exibidor_2estruturas_8h.html#aaea667445c15617b5c6ad01f0e53b481afb43b8264ea4d3dd9957ba1b3fd3f3d5", null ],
+      [ "SYNCHRONIZED", "_leitor_exibidor_2estruturas_8h.html#aaea667445c15617b5c6ad01f0e53b481aa3f0c8ae421223ecbd38fed5d36f73d2", null ],
+      [ "BRIDGE", "_leitor_exibidor_2estruturas_8h.html#aaea667445c15617b5c6ad01f0e53b481a68d3880946f8e8f3fb64b7f635aaba1e", null ],
+      [ "VARARGS", "_leitor_exibidor_2estruturas_8h.html#aaea667445c15617b5c6ad01f0e53b481a74c90953cf8f871c224a2e6552c42f89", null ],
+      [ "NATIVE", "_leitor_exibidor_2estruturas_8h.html#aaea667445c15617b5c6ad01f0e53b481a26741459537a01adc304c787cdd3243e", null ],
+      [ "ABSTRACT", "_leitor_exibidor_2estruturas_8h.html#aaea667445c15617b5c6ad01f0e53b481a7b62cfe03ccf259e4f0a1be2bf90491f", null ],
+      [ "STRICT", "_leitor_exibidor_2estruturas_8h.html#aaea667445c15617b5c6ad01f0e53b481a459b52e1bdb128570809aba2a4c92d2c", null ],
+      [ "SYNTHETIC", "_leitor_exibidor_2estruturas_8h.html#aaea667445c15617b5c6ad01f0e53b481a71f76fa1f9dd08a6852a5ed13669c95f", null ],
+      [ "ENUM", "_leitor_exibidor_2estruturas_8h.html#aaea667445c15617b5c6ad01f0e53b481a5bc38f5ef3a09fbc02c3f3576277a5b9", null ],
+      [ "VOLATILE", "_leitor_exibidor_2estruturas_8h.html#aaea667445c15617b5c6ad01f0e53b481ad2cbe40cd1e913a07a0d702786a14922", null ],
+      [ "TRANSIENT", "_leitor_exibidor_2estruturas_8h.html#aaea667445c15617b5c6ad01f0e53b481a189628bd9c66ada3fb11593230091ad4", null ]
     ] ],
     [ "tipos_array", "estruturas_8h.html#a10f4dfa4cc56f9dc100ed8b124308cf8", [
       [ "T_BOOLEAN", "estruturas_8h.html#a10f4dfa4cc56f9dc100ed8b124308cf8ae9a41de21d41da1b2f4195dd8829d6e3", null ],
@@ -131,6 +146,20 @@ var estruturas_8h =
       [ "CONSTANT_Utf8", "estruturas_8h.html#a0320a2acf851060486fdea7ebcb33cd5a4100a823f09e364338e42951035432ed", null ],
       [ "CONSTANT_MethodHandle", "estruturas_8h.html#a0320a2acf851060486fdea7ebcb33cd5ac9fdca41420c578c73fadfa67d4ae26a", null ],
       [ "CONSTANT_MethodType", "estruturas_8h.html#a0320a2acf851060486fdea7ebcb33cd5a52dbe317b7b19ea9d13a8b185842d245", null ],
-      [ "CONSTANT_InvokeDynamic", "estruturas_8h.html#a0320a2acf851060486fdea7ebcb33cd5a914abae8d35d480c7856e97ca4fc00e0", null ]
+      [ "CONSTANT_InvokeDynamic", "estruturas_8h.html#a0320a2acf851060486fdea7ebcb33cd5a914abae8d35d480c7856e97ca4fc00e0", null ],
+      [ "VALOR_CONSTANT_Class", "_leitor_exibidor_2estruturas_8h.html#a0320a2acf851060486fdea7ebcb33cd5a5935f9a687b3518cbe5e761b304db0d1", null ],
+      [ "VALOR_CONSTANT_Fieldref", "_leitor_exibidor_2estruturas_8h.html#a0320a2acf851060486fdea7ebcb33cd5a752acf91164bd1fca63cfab818c11f8a", null ],
+      [ "VALOR_CONSTANT_Methodref", "_leitor_exibidor_2estruturas_8h.html#a0320a2acf851060486fdea7ebcb33cd5a48f0cacfd41ba0fb5fb415ca3b346eac", null ],
+      [ "VALOR_CONSTANT_InterfaceMethodref", "_leitor_exibidor_2estruturas_8h.html#a0320a2acf851060486fdea7ebcb33cd5a9acd3ae3155f6a0429c200e51c0dddef", null ],
+      [ "VALOR_CONSTANT_String", "_leitor_exibidor_2estruturas_8h.html#a0320a2acf851060486fdea7ebcb33cd5a5f4e13681548fef1934155abc567fc3c", null ],
+      [ "VALOR_CONSTANT_Integer", "_leitor_exibidor_2estruturas_8h.html#a0320a2acf851060486fdea7ebcb33cd5a1f6a5f68e9c2a59b718e1e5610becbd7", null ],
+      [ "VALOR_CONSTANT_Float", "_leitor_exibidor_2estruturas_8h.html#a0320a2acf851060486fdea7ebcb33cd5ac96e4174b297735f5adbd4d0cb1d2325", null ],
+      [ "VALOR_CONSTANT_Long", "_leitor_exibidor_2estruturas_8h.html#a0320a2acf851060486fdea7ebcb33cd5ae52513410b1ff40a919b6d6c1adb2a59", null ],
+      [ "VALOR_CONSTANT_Double", "_leitor_exibidor_2estruturas_8h.html#a0320a2acf851060486fdea7ebcb33cd5add853dc7f180c9ab9f76ac773a0dbd83", null ],
+      [ "VALOR_CONSTANT_NameAndType", "_leitor_exibidor_2estruturas_8h.html#a0320a2acf851060486fdea7ebcb33cd5ad632a1d09236cf671c9a9de6d2cc9a44", null ],
+      [ "VALOR_CONSTANT_Utf8", "_leitor_exibidor_2estruturas_8h.html#a0320a2acf851060486fdea7ebcb33cd5a0dc68ab8ac22dd22990aaf077637e916", null ],
+      [ "VALOR_CONSTANT_MethodHandle", "_leitor_exibidor_2estruturas_8h.html#a0320a2acf851060486fdea7ebcb33cd5a90c52ad067130249c0f29c34e83d593d", null ],
+      [ "VALOR_CONSTANT_MethodType", "_leitor_exibidor_2estruturas_8h.html#a0320a2acf851060486fdea7ebcb33cd5a3ccc5ad4fb934be766fabde925d01afd", null ],
+      [ "VALOR_CONSTANT_InvokeDynamic", "_leitor_exibidor_2estruturas_8h.html#a0320a2acf851060486fdea7ebcb33cd5a16dcb5fdc92f59de15182411682d3dc9", null ]
     ] ]
 ];

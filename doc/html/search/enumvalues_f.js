@@ -8,6 +8,6 @@ var searchData=
   ['t_5fint_5',['T_INT',['../estruturas_8h.html#a10f4dfa4cc56f9dc100ed8b124308cf8aa30cbb0eb56b7263a35f9d6643e12c83',1,'estruturas.h']]],
   ['t_5flong_6',['T_LONG',['../estruturas_8h.html#a10f4dfa4cc56f9dc100ed8b124308cf8a1f8887255ce9ce523e5c497f14d9d842',1,'estruturas.h']]],
   ['t_5fshort_7',['T_SHORT',['../estruturas_8h.html#a10f4dfa4cc56f9dc100ed8b124308cf8af6e1ea54f8e10a8fc777843afc797c22',1,'estruturas.h']]],
-  ['tableswitch_8',['tableswitch',['../instrucoes_8h.html#a408118c036050ac5fdb82affaf872a35ae7b0ecf96d2bf1ef455ba9488697c85a',1,'instrucoes.h']]],
-  ['transient_9',['TRANSIENT',['../estruturas_8h.html#aaea667445c15617b5c6ad01f0e53b481a189628bd9c66ada3fb11593230091ad4',1,'estruturas.h']]]
+  ['tableswitch_8',['tableswitch',['../instrucoes_8h.html#a408118c036050ac5fdb82affaf872a35ae7b0ecf96d2bf1ef455ba9488697c85a',1,'tableswitch():&#160;instrucoes.h'],['../_leitor_exibidor_2instrucoes_8h.html#aa19b38b70e34a2bf9af3be5aba356668ae7b0ecf96d2bf1ef455ba9488697c85a',1,'tableswitch():&#160;instrucoes.h']]],
+  ['transient_9',['TRANSIENT',['../estruturas_8h.html#aaea667445c15617b5c6ad01f0e53b481a189628bd9c66ada3fb11593230091ad4',1,'TRANSIENT():&#160;estruturas.h'],['../_leitor_exibidor_2estruturas_8h.html#aaea667445c15617b5c6ad01f0e53b481a189628bd9c66ada3fb11593230091ad4',1,'TRANSIENT():&#160;estruturas.h']]]
 ];

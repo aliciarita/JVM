@@ -10,6 +10,6 @@ var searchData=
   ['reference_5farray_5fshort_5fop_7',['REFERENCE_ARRAY_SHORT_OP',['../lista_operandos_8h.html#a4e4626fe04fb7e693e4747300a58f31fabb19c4623e7fc1894216dbc19f51d9dc',1,'listaOperandos.h']]],
   ['reference_5fop_8',['REFERENCE_OP',['../lista_operandos_8h.html#a4e4626fe04fb7e693e4747300a58f31fa7e1780a7fe80e9662c912c4dc0287c01',1,'listaOperandos.h']]],
   ['reference_5fstring_5fop_9',['REFERENCE_STRING_OP',['../lista_operandos_8h.html#a4e4626fe04fb7e693e4747300a58f31fa000e575ab2a8689d7461093a6c42b29e',1,'listaOperandos.h']]],
-  ['ret_10',['ret',['../instrucoes_8h.html#a408118c036050ac5fdb82affaf872a35ac0b8e5d2cae1972048b620be316bb7a9',1,'instrucoes.h']]],
+  ['ret_10',['ret',['../instrucoes_8h.html#a408118c036050ac5fdb82affaf872a35ac0b8e5d2cae1972048b620be316bb7a9',1,'ret():&#160;instrucoes.h'],['../_leitor_exibidor_2instrucoes_8h.html#aa19b38b70e34a2bf9af3be5aba356668ac0b8e5d2cae1972048b620be316bb7a9',1,'ret():&#160;instrucoes.h']]],
   ['return_5faddress_5fop_11',['RETURN_ADDRESS_OP',['../lista_operandos_8h.html#a4e4626fe04fb7e693e4747300a58f31fad177591f08eabd0ac4821477583a2017',1,'listaOperandos.h']]]
 ];

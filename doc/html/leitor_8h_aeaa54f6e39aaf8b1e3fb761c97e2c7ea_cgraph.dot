@@ -1,0 +1,18 @@
+digraph "decodificarOperandoInstrucao"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="decodificarOperandoInstrucao",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Função para decodificar os argumentos de uma instrução."];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="decodificaDoubleInfo",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$leitor_8c.html#a404e212e067e543ef2bb41917bc88048",tooltip="Função para decodificar uma entrada double na constant pool."];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="decodificaFloatInfo",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$leitor_8c.html#a45d3610b7050b8c252785827138bfac2",tooltip="[brief description]"];
+  Node1 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="decodificaLongInfo",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$leitor_8c.html#ae96720147cc7cc5143450b071d5e080e",tooltip="Função para decodificar uma entrada long na constant pool."];
+  Node1 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="decodificaNIeNT",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$leitor_8c.html#a647bf2bd91c9d6741d5e82bad273acb0",tooltip="Função para decodificar uma entrada da Constant Pool."];
+  Node5 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="decodificaStringUTF8",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$leitor_8c.html#a01fd19f088758f2551a518310fccf3bd",tooltip="Função que retorna a string UTF8 da entrada da constant pool recebida como parâmetro."];
+}

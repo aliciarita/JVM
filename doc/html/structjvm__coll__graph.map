@@ -1,0 +1,17 @@
+<map id="jvm" name="jvm">
+<area shape="rect" id="node1" title=" " alt="" coords="359,472,400,499"/>
+<area shape="rect" id="node2" href="$structclasses_carregadas.html" title=" " alt="" coords="321,331,454,357"/>
+<area shape="rect" id="node3" href="$struct_class_file.html" title=" " alt="" coords="371,187,447,213"/>
+<area shape="rect" id="node4" href="$structcp__info.html" title=" " alt="" coords="261,97,324,124"/>
+<area shape="rect" id="node11" href="$structframe.html" title=" " alt="" coords="185,187,240,213"/>
+<area shape="rect" id="node5" href="$structfield__info.html" title=" " alt="" coords="349,97,421,124"/>
+<area shape="rect" id="node6" href="$structattribute__info.html" title=" " alt="" coords="451,7,547,33"/>
+<area shape="rect" id="node8" href="$structmethod__info.html" title=" " alt="" coords="445,97,537,124"/>
+<area shape="rect" id="node7" href="$structstatic_data.html" title=" " alt="" coords="257,7,339,33"/>
+<area shape="rect" id="node9" href="$structpilha__frames.html" title=" " alt="" coords="229,383,324,409"/>
+<area shape="rect" id="node10" href="$structlista__frames.html" title=" " alt="" coords="213,277,305,304"/>
+<area shape="rect" id="node12" href="$structpilha__operandos.html" title=" " alt="" coords="5,97,121,124"/>
+<area shape="rect" id="node13" href="$structlista__operandos.html" title=" " alt="" coords="7,7,120,33"/>
+<area shape="rect" id="node14" href="$structvetor__locais.html" title=" " alt="" coords="146,97,237,124"/>
+<area shape="rect" id="node15" href="$struct_lista___objetos.html" title=" " alt="" coords="453,383,556,409"/>
+</map>

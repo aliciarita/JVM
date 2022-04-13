@@ -1,0 +1,41 @@
+digraph "imprimirClassFile"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="imprimirClassFile",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Função para imprimir um arquivo .class lido."];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="buscaNomeTag",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$leitor_8c.html#a7ef20a2c942facacbe6a81436ee21860",tooltip="Função para retornar a string representando uma tag."];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="constroeInstrucoes",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$instrucoes_8c.html#af412ec307a40a217d397cee9f6cd59af",tooltip=" "];
+  Node1 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="decodificaAccessFlags",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$leitor_8c.html#a6342c658d0b0e64f6c033784f056fdb2",tooltip="Função para decodificar o access flag enviado como parâmetro."];
+  Node4 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="organizandoFlags",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$leitor_8c.html#aaf1dae73f0d59ea8977360df12be3608",tooltip="Função para colocar as flags de acesso na ordem correta."];
+  Node1 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="decodificaDoubleInfo",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$leitor_8c.html#a404e212e067e543ef2bb41917bc88048",tooltip="Função para decodificar uma entrada double na constant pool."];
+  Node1 -> Node7 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="decodificaFloatInfo",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$leitor_8c.html#a45d3610b7050b8c252785827138bfac2",tooltip="[brief description]"];
+  Node1 -> Node8 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="decodificaIntegerInfo",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$leitor_8c.html#a193651d01919e84f6190d78268218797",tooltip="Função para decodificar uma entrada Integer na constant pool."];
+  Node1 -> Node9 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="decodificaLongInfo",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$leitor_8c.html#ae96720147cc7cc5143450b071d5e080e",tooltip="Função para decodificar uma entrada long na constant pool."];
+  Node1 -> Node10 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 [label="decodificaMajorVersion",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$leitor_8c.html#a5d668efa8d9f1f9b3c53f477d69fbff5",tooltip="Função para decodificar a major version de um arquivo .class."];
+  Node1 -> Node11 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node11 [label="decodificaNIeNT",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$leitor_8c.html#a647bf2bd91c9d6741d5e82bad273acb0",tooltip="Função para decodificar uma entrada da Constant Pool."];
+  Node11 -> Node12 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node12 [label="decodificaStringUTF8",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$leitor_8c.html#a01fd19f088758f2551a518310fccf3bd",tooltip="Função que retorna a string UTF8 da entrada da constant pool recebida como parâmetro."];
+  Node1 -> Node13 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node13 [label="decodificarCode",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$leitor_8c.html#a17c7bcbe9079ec699df46cfb4471660d",tooltip="Função para decodificar o atributo Code de um método."];
+  Node13 -> Node14 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node14 [label="decodificarOperandoInstrucao",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$leitor_8c.html#aeaa54f6e39aaf8b1e3fb761c97e2c7ea",tooltip="Função para decodificar os argumentos de uma instrução."];
+  Node14 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node14 -> Node7 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node14 -> Node9 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node14 -> Node11 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 -> Node12 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 -> Node15 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node15 [label="setaOffsetImpressao",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$leitor_8c.html#a5b22b47700c5359a81c24a70a381bc71",tooltip="Função para ajustar um offset do atributo interno da stack map frame."];
+}

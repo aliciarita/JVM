@@ -22,6 +22,7 @@ var interpretador_8h =
     [ "athrow_impl", "interpretador_8h.html#abff62884e6fd16c56a9094c7016f56cd", null ],
     [ "baload_impl", "interpretador_8h.html#a83dca00976d35e93fa0ddd237cc5f91b", null ],
     [ "bastore_impl", "interpretador_8h.html#aa7cd9188ab992cae94e72e685fb103e4", null ],
+    [ "bipush_impl", "interpretador_8h.html#af8f40dfd4bef8eaa9ce50c11ff42a920", null ],
     [ "buscaObjetoViaReferencia", "interpretador_8h.html#a1c59b7e02a68eac5e46098931ef7b785", null ],
     [ "buscaStaticFlags", "interpretador_8h.html#ac35643f2a48457591ea4f409d6ecec76", null ],
     [ "caload_impl", "interpretador_8h.html#a297fe28b6ec7391e434ad244769db61c", null ],

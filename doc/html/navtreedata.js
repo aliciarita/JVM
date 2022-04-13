@@ -25,15 +25,15 @@
 var NAVTREE =
 [
   [ "JVM - Grupo 04", "index.html", [
-    [ "JVM - Java Virtual Machine", "md__c___users_maris__documents__git_hub__j_v_m__r_e_a_d_m_e.html", [
-      [ "Projeto lógico da JVM - Software Básico UnB", "md__c___users_maris__documents__git_hub__j_v_m__r_e_a_d_m_e.html#autotoc_md1", null ]
+    [ "JVM - Java Virtual Machine", "md__c___users_maris__desktop_jvm_final__j_v_m__r_e_a_d_m_e.html", [
+      [ "Projeto lógico da JVM - Software Básico UnB", "md__c___users_maris__desktop_jvm_final__j_v_m__r_e_a_d_m_e.html#autotoc_md1", null ]
     ] ],
     [ "Data Structures", "annotated.html", [
       [ "Data Structures", "annotated.html", "annotated_dup" ],
       [ "Data Structure Index", "classes.html", null ],
       [ "Data Fields", "functions.html", [
-        [ "All", "functions.html", null ],
-        [ "Variables", "functions_vars.html", null ]
+        [ "All", "functions.html", "functions_dup" ],
+        [ "Variables", "functions_vars.html", "functions_vars" ]
       ] ]
     ] ],
     [ "Files", "files.html", [
@@ -53,12 +53,14 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"annotated.html",
-"instrucoes_8h.html#a408118c036050ac5fdb82affaf872a35a56f03c09b212459098859a8d582209dc",
-"interpretador_8c.html#a97b392d390057f97e7e4e0e23ae31257",
-"interpretador_8h.html#aa0f15017ea1e86a34fd7cb0aaee40ee7",
-"lista_operandos_8c.html#a759fa7bda619ddb6f94436aa62c17f28",
-"structlista__operandos.html#a54bba1f2ac99488a6e43292872dfb1cf"
+"_leitor_exibidor_2class_file_8h.html",
+"_leitor_exibidor_2instrucoes_8h.html#aa19b38b70e34a2bf9af3be5aba356668aa0f94f02ed343c40a2e00276c66442cc",
+"estruturas_8h.html#ab6bfe09c6089381b5f0a87eab62ee546",
+"instrucoes_8h.html#a408118c036050ac5fdb82affaf872a35a8bcf69e8918219d64faaf1ac4de87c7f",
+"interpretador_8c.html#ac399948f2173d49596e01d7ad8205aae",
+"interpretador_8h.html#ad5802ef6711babf3d30bd4aa5c8f39a6",
+"lista_operandos_8h.html#ae4d1c3d548028e31400378ec81026110",
+"structmethod__info.html#aa53122439ee827a418258d52c51368c6"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

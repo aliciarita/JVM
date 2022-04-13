@@ -2,7 +2,7 @@ var lista_operandos_8c =
 [
     [ "BuscaElementoOperandos", "lista_operandos_8c.html#a057146654f9dbe6efbf3e3f601b1bda2", null ],
     [ "BuscaPosicaoOperandos", "lista_operandos_8c.html#a759fa7bda619ddb6f94436aa62c17f28", null ],
-    [ "CriarLista_operandos", "lista_operandos_8c.html#ac8b47266ab11c776d52de784514bf07c", null ],
+    [ "CriarLista_operandos", "lista_operandos_8c.html#a26eb80b0f6c01f5f1093e409d6fa6c36", null ],
     [ "ImprimeListaOperandos", "lista_operandos_8c.html#a08c1aaacaf33021d862d699c2b0b6e5c", null ],
     [ "InsereFimOperandos", "lista_operandos_8c.html#aa780541786a9e7c21a0762a71d4ecb7f", null ],
     [ "InsereInicioOperandos", "lista_operandos_8c.html#a5f219deeddf8dfc3cb579bce9679a276", null ],
